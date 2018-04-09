@@ -33,6 +33,8 @@
 
         <?php get_sidebar(); ?>
 
+        <?php theme_pagination(); ?>
+
         <?php get_footer(); ?>
     </body>
 </html>
