@@ -16,18 +16,21 @@
             <h2 class="footerTitle">CATEGORIES</h2>
             <?php wp_nav_menu('Categorie');?> 
         </div>
-        <div id="footerPOP">
+        <div id="footerPop">
             <h2 class="footerTitle">POPULAR POST</h2>
             <?php if(function_exists('wpp_get_mostpopular')){
                         $args = array(
                             'limit' => 3,
-                            'stats_views' => 0);
+                            'stats_views' => 0,
+                            'thumbnail_width' => 50,
+                            'thumbnail_height' => 50);
                         wpp_get_mostpopular($args);
                   }?>
             
         </div>
         <div id="footerInst">
             <h2 class="footerTitle">INSTAGRAM</h2>
+            
         </div>
     </div>
     <div id="footerEnd">

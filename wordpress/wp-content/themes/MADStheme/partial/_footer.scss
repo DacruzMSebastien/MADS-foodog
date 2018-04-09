@@ -1,6 +1,25 @@
 #footer {
+    display: grid;
+    grid-template-columns: 30%, 30%, 30%;
+    grid-template-rows: 25%;
     #footerInfo {
         background-color: $footer-primary-back;
+        display: grid;
+        grid-template-columns: 30%, 30%, 30%;
+        grid-template-rows: 25%;
+        width: 100%;
+        #footerCat {
+            grid-column: 1;
+            width: 20%;
+        }
+        #footerPop {
+            grid-column: 2;
+            width: 20%;
+        }
+        #footerInst {
+            grid-column: 3;
+            width: 20%;
+        }
     }
     #footerEnd {
         background-color: $footer-secondary-back;
