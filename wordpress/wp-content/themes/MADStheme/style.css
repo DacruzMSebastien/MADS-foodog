@@ -238,8 +238,16 @@ h5 {
   padding-top: 30px;
 }
 
-.fcbk {
-  color: red;
+.fcbk, .twitter, .insta {
+  color: white;
+}
+
+.fcbk, .insta {
+  background-color: #8E91CC;
+}
+
+.twitter {
+  background-color: #6BCDF4;
 }
 
 #footer #footerInfo {
