@@ -55,8 +55,7 @@ if ( function_exists( 'add_theme_support' ) ) {
     add_theme_support( 'post-thumbnails' );
   }
 
-  // Display pagination
-  if( !function_exists( 'theme_pagination' ) ) {
+if( !function_exists( 'theme_pagination' ) ) {
 
     function theme_pagination() {
 
