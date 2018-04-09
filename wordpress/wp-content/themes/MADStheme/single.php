@@ -1,7 +1,7 @@
     <!-- THIS PAGE CONTAIN SINGLEPAGE FOR EACH ARTICLE -->
 
     <?php get_header(); ?>
-    <!-- ouvrir header,php -->
+    <!-- ouvrir header.php -->
         <div id="single-content">
             <p class="category"><?php the_category(', ') ?></p>
             <?php if(have_posts()) : ?>

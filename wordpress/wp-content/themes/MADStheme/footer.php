@@ -25,8 +25,7 @@
                             'thumbnail_width' => 50,
                             'thumbnail_height' => 50);
                         wpp_get_mostpopular($args);
-                  }?>
-            
+            }?>
         </div>
         <div id="footerInst">
             <h2 class="footerTitle">INSTAGRAM</h2>

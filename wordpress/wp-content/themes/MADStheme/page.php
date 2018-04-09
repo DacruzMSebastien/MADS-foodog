@@ -1,4 +1,8 @@
+        
+<!-- PAGE INUTILISEE -->
+
         <!-- AFFICHAGE DES PAGES ( PAS ARTICLE ! ) -->
+        
 
             <?php get_header(); ?>
 

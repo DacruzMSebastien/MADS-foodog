@@ -21,7 +21,6 @@
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
         <?php wp_head(); ?>
         <?php wp_get_archives('type=monthly&format=link'); ?>
-        <?php //comments_popup_script(); <?php wp_head(); ?>
 
         <?php wp_footer(); ?>
         <!-- TOOLBAR WORDPRESS -->
@@ -29,20 +28,23 @@
     <body>
         <div id="page">
             <div id="header">
+                <a href="#" class="header__icon"></a>
+                <!-- icon visible seulement quand ecran - de 480px -->
                 <div class="liensSociaux">
                     <ul>
                         <li><a href="https://fr-fr.facebook.com/"><img src="http://localhost/MADS-foodog/wordpress/wp-admin/images/facebook.png" alt="facebook"></a></li>
                         <li><a href="https://twitter.com/?lang=fr"><img src="http://localhost/MADS-foodog/wordpress/wp-admin/images/twitter.png" alt ="twitter"></a></li>
                         <li><a href="https://www.instagram.com/?hl=fr"><img src="http://localhost/MADS-foodog/wordpress/wp-admin/images/insta.png" alt="instagram"></a></li>
-                        <li><a href="search.php"><img src="http://localhost/MADS-foodog/wordpress/wp-admin/images/search.png" alt ="search"></a></li>
+                        <li><a href="index.php/search"><img src="http://localhost/MADS-foodog/wordpress/wp-admin/images/search.png" alt ="search"></a></li>
                     </ul>
                 </div>  
                 <h1>
-                    <a href="<?php bloginfo('url'); ?>">
-                        <?php bloginfo('name'); ?>
-                    </a>
+                <a href="<?php bloginfo('url'); ?>">
+                <?php bloginfo('name'); ?>
+                    
                 </h1>
-                <?php wp_nav_menu('Categorie');?>    
+                <?php wp_nav_menu('Categorie'); ?>
+                    
             </div>
             <div id="barre">
             </div>

@@ -71,7 +71,7 @@ $oddcomment = 'alt';
 	<?php else : // comments are closed ?>
 
 	<!-- If comments are closed. -->
-	<p class="nocomments">Les commentaires sont fermŽs !</p>
+	<p class="nocomments">Les commentaires sont fermés !</p>
 
 	<?php endif; ?>
 	<?php endif; ?>

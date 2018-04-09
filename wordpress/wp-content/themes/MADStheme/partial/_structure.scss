@@ -20,7 +20,7 @@ h3 {
     @include h-center (100%, left);
 }
 
-h4 {
+h4 { // Title for article
     @include h-center (100%, left);
     padding-top: 25px;
     padding-bottom: 25px;
@@ -29,7 +29,7 @@ h4 {
     font-size: 120%;
 }
 
-h5 {
+h5 { //subtitle for article
     @include h-center (100%, left);
     font-weight: $font-weight-bold;
     padding-top: 20px;

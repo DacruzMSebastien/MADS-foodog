@@ -1,10 +1,6 @@
 <?php
-/**
+/*
  * The template for displaying 404 pages (Not Found)
- *
- * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
  */
 
 get_header(); ?>
@@ -30,14 +26,12 @@ get_header(); ?>
 
         <ul>
             <?php
-            $my_query = new WP_Query('showposts=5');
-            while ($my_query->have_posts()) : $my_query->the_post();
+                $my_query = new WP_Query('showposts=5');
+                while ($my_query->have_posts()) : $my_query->the_post();
             ?>
 
-                <li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
-                <?php
-                endwhile;
-                ?>
+            <li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+            <?php endwhile;?>
         </ul>
     </div><!-- #post_404 -->
 

@@ -5,6 +5,7 @@
         'meta_key' => 'meta-checkbox',
         'meta_value' => 'yes'
     );
+    
     $featured = new WP_Query($args);
 
 if ($featured->have_posts()): while($featured->have_posts()): $featured->the_post(); ?>
@@ -19,10 +20,6 @@ if ($featured->have_posts()): while($featured->have_posts()): $featured->the_pos
         <div class="post_content">
             <?php the_content(); ?>
         </div>
-        <a href="<?php //the_author_posts() ?>">
-            <?php //the_author(); ?> </a>
-        <?php //echo get_the_date('F j, Y'); ?>
-
     </p>
     <?php if (has_post_thumbnail()) : ?>
 

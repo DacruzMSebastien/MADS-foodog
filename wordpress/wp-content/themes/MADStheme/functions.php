@@ -7,22 +7,23 @@ function sm_meta_callback( $post ) {
     $featured = get_post_meta( $post->ID );
     ?>
 
-	<p>
+<p>
     <div class="sm-row-content">
         <label for="meta-checkbox">
-            <input type="checkbox" name="meta-checkbox" id="meta-checkbox" value="yes" <?php if ( isset ( $featured['meta-checkbox'] ) ) checked( $featured['meta-checkbox'][0], 'yes' ); ?> />
+            <input type="checkbox" name="meta-checkbox" id="meta-checkbox" value="yes" <?php if ( isset ( $featured[ 'meta-checkbox']
+                ) ) checked( $featured[ 'meta-checkbox'][0], 'yes' ); ?> />
             <?php _e( 'Featured this post', 'sm-textdomain' )?>
         </label>
 
     </div>
 </p>
 
-    <?php
+<?php
 }
 add_action( 'add_meta_boxes', 'sm_custom_meta' );
 ?>
 
-<?php
+    <?php
 /**
  * Saves the custom meta input
  */
