@@ -57,6 +57,8 @@
 
         <?php pagination($wp_query); ?>
 
+        <?php theme_pagination(); ?>
+
         <?php get_footer(); ?>
     </body>
 </html>
