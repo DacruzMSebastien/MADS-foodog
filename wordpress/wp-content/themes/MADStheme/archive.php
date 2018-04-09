@@ -28,6 +28,7 @@
                             // affiche la miniature par défaut
                             // ?>
                         </div>
+
                     <div class="archive_title">       
                         <?php the_title(); ?>
                      </div>
@@ -54,7 +55,6 @@
         </div>
 
 
-        <?php pagination($wp_query); ?>
 
         <?php get_footer(); ?>
     </body>
