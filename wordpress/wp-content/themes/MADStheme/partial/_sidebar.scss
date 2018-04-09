@@ -1,3 +1,24 @@
-.fcbk {
-  color: red;
+.fcbk, .twitter, .insta {
+  color: white;
+  height: 35px;
+  width: 250px;
+  font-size: 16px;
+}
+.fcbk, .insta {
+  background-color: #8E91CC;
+}
+.twitter {
+  background-color: #6BCDF4;
+}
+img {
+  padding-left: 2px;
+}
+span {
+  color: white;
+  float: right;
+  padding-right: 3px;
+  padding-top: 3px;
+}
+ul {
+  padding-bottom: 50px;
 }
