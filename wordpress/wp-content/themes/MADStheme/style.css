@@ -281,6 +281,7 @@ h5 {
 
 #content #article {
   width: 50%;
+  height: 300px;
   padding-left: 15%;
   padding-bottom: 15px;
 }
@@ -291,13 +292,23 @@ h5 {
   padding-top: 10px;
 }
 
-#content #article .post a {
-  margin-left: 5px;
+#content #article .post .category {
+  background-color: blue;
+  width: 35%;
+  margin-left: 45%;
+  transform: translateY(25px);
+  font-size: 18px;
 }
 
 #content #article .post #archive_picture {
   width: 40%;
   height: 200px;
+}
+
+#content #article .post #archive_picture img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
 }
 
 #content #article .post .archive_title {
@@ -306,7 +317,7 @@ h5 {
   font-family: "Open Sans", sans-serif;
   font-weight: 900;
   text-transform: uppercase;
-  margin-left: 35%;
+  margin-left: 45%;
   transform: translateY(-150px);
   font-size: 22px;
 }
@@ -314,7 +325,7 @@ h5 {
 #content #article .post_content {
   width: 60%;
   height: 50%;
-  margin-left: 35%;
+  margin-left: 45%;
   padding-top: 10px;
   transform: translateY(-120px);
 }
