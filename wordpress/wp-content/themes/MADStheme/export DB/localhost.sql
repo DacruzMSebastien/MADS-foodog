@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 09, 2018 at 02:37 PM
+-- Generation Time: Apr 09, 2018 at 04:33 PM
 -- Server version: 5.7.21-0ubuntu0.16.04.1
 -- PHP Version: 7.0.28-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -17,8 +17,738 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
+-- Database: `becode`
+--
+CREATE DATABASE IF NOT EXISTS `becode` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `becode`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE `students` (
+  `idstudent` int(10) UNSIGNED NOT NULL,
+  `nom` varchar(60) NOT NULL,
+  `prenom` varchar(60) NOT NULL,
+  `datenaissance` date NOT NULL,
+  `genre` enum('F','H') NOT NULL,
+  `ecole` set('Andy','Central') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`idstudent`, `nom`, `prenom`, `datenaissance`, `genre`, `ecole`) VALUES
+(1, 'da Cruz-Matias', 'Sébastien', '1991-09-27', 'H', 'Central'),
+(5, 'Hennaux', 'Philippe', '1999-02-15', 'H', 'Central'),
+(6, 'Hennaux', 'Philippe', '1999-02-15', 'H', 'Central');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`idstudent`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `students`
+--
+ALTER TABLE `students`
+  MODIFY `idstudent` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;--
+-- Database: `imdb`
+--
+CREATE DATABASE IF NOT EXISTS `imdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `imdb`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `authors`
+--
+
+CREATE TABLE `authors` (
+  `id` int(11) NOT NULL,
+  `lastname` varchar(60) CHARACTER SET utf8 NOT NULL,
+  `firstname` varchar(60) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `authors`
+--
+
+INSERT INTO `authors` (`id`, `lastname`, `firstname`) VALUES
+(1, 'Nolan', 'Christopher'),
+(2, 'Spielberg', 'Steven'),
+(3, 'Jeunet', 'Jean-Pierre'),
+(4, 'Scorsese', 'Martin'),
+(5, 'Hitchcock', 'Alfred'),
+(6, 'Eastwood', 'Clint'),
+(7, 'Kubrick', 'Stanley'),
+(8, 'Lavandier', 'Yves');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `movies`
+--
+
+CREATE TABLE `movies` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `release_date` int(4) NOT NULL,
+  `id_author` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `movies`
+--
+
+INSERT INTO `movies` (`id`, `title`, `release_date`, `id_author`) VALUES
+(1, 'Tarantella', 1989, 1),
+(2, 'Larceny', 1996, 1),
+(3, 'Doodlebu', 1997, 1),
+(4, 'Memento', 2000, 1),
+(5, 'Insomnia', 2002, 1),
+(6, 'Batman Begins', 1996, 1),
+(7, 'Le prestige', 1997, 1),
+(8, 'E.T L\'extra Terrestre', 1982, 2),
+(9, 'Indiana Jones et le temple maudit', 1984, 2),
+(10, 'Jurassic Park', 1993, 2),
+(11, 'Delicatessen', 1991, 3),
+(12, 'Le fabuleux destin d\'Amélie poulain', 2001, 3),
+(13, 'Taxi Driver', 1976, 4),
+(14, 'New York, New york', 1977, 4),
+(15, 'Le affranchis', 1990, 4),
+(16, 'Fenêtre sur cour', 1954, 5),
+(17, 'Million Dollar Baby', 2004, 6),
+(18, 'Orange mécanique', 1972, 7),
+(19, 'Tintin et le secret de la Licorne', 1931, 2);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `authors`
+--
+ALTER TABLE `authors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `movies`
+--
+ALTER TABLE `movies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `authors`
+--
+ALTER TABLE `authors`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `movies`
+--
+ALTER TABLE `movies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;--
+-- Database: `minichat`
+--
+CREATE DATABASE IF NOT EXISTS `minichat` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `minichat`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `message`
+--
+
+CREATE TABLE `message` (
+  `ID` int(11) NOT NULL,
+  `messages` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`ID`, `messages`, `date`, `user_ID`) VALUES
+(63, 'Hello World!', '2018-03-11 21:33:46', 10),
+(64, 'Hello', '2018-03-16 09:18:31', 10),
+(65, 'Hello', '2018-03-16 09:31:16', 10),
+(66, 'Hello', '2018-03-16 09:31:37', 10),
+(67, 'Hello', '2018-03-16 09:32:11', 10),
+(68, 'Yo', '2018-03-16 09:32:17', 10),
+(69, 'Yo', '2018-03-16 09:42:58', 10),
+(70, 'Oui', '2018-03-16 09:43:05', 10),
+(71, 'ha', '2018-03-16 09:47:25', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `ID` int(11) NOT NULL,
+  `login` varchar(45) NOT NULL,
+  `password` char(60) NOT NULL,
+  `email` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`ID`, `login`, `password`, `email`) VALUES
+(1, 'Dacruz', '$2y$10$7Dbzk7Okwh7DN9WmEl8eLOAEUBahV7E7MpuVkh0Am2SZbMiRhOKfu', 'dacruz@becode.be'),
+(2, 'LeMusclé', '$2y$10$II6rnvTsBd1akXO58gPOsOe.xTKeVitOw6ZBhpdyzTTDJG7jK/LL.', 'musclor@becote.fr'),
+(3, 'Madjer', '$2y$10$KsI4xRZXkEtK8EQ3JwnFaeTgGSKK14SLej8tJ5/KZTtQqQdlZQiG2', 'madjer@live.be'),
+(4, 'bonjour', '$2y$10$fVHNMSi9.ddeoVbJdDygruRI09uJdCw4x2f.JEdnlxFgdtBno9Pyy', 'salut@bjr.be'),
+(5, 'Jean', '$2y$10$k61Urbq.XVSWz8y8lc0dgegly.li3KvpqL3zJOxZrlIJ/Xox3xNqe', ''),
+(6, 'user', '$2y$10$.WGmZJQyWvEdTDAEFGDx6etFd9LGo8SgK618xDV09/DkQTE5iKhgq', 'user@admin.be'),
+(7, 'test', '$2y$10$QjOveeI9ce9kDqA.jAIbAeTWxXwsUtpJ7zegWl2S7h.RItrd3DQfq', 'test@test.be'),
+(8, 'test', '$2y$10$/Kql5UcdkF62EBI4gZFio.PMrBLDWBsO6hGhOPgnk/emmWGhOQE7a', 'test@test.be'),
+(9, 'test', '$2y$10$RDc9d5QudWhY3h8rSOoapOb5PRVmQGKNpLUyMOjqvddK/sCLE0Pd.', 'test@test.be'),
+(10, 'test', '$2y$10$mwUq1A383TdxLJ9WtgXyReVXHJPx44WgB4fjGgdnoShjN1CjMvkhm', 'test@test.be'),
+(11, 'salut', '$2y$10$SMjr38GFl.M/JpxkoGym/exPIZUDC7obsmn218vOGWy5.d9Mo9Fbu', 'salut@osef.be'),
+(12, 'johnny', '$2y$10$pvxKJTy4u72CioyxGslS9uh3syNECBRjlJoPK1VHEjduDEw99hwSm', 'johnny@jojo.jo'),
+(13, 'Geoffrey', '$2y$10$FHcxlPiSy12kTdKsEL.7l.1yYWK/q.nluhiH7xOBYTKpDsbVChnya', 'geoffrey@user.be'),
+(14, 'Etienne_Renard', '$2y$10$EHidiXi8J2jDHM6hx62.luhp2YQA3B5P7nj2YuiZv1Zq7vRrlqgl.', 'etiennerenard@belgacom.be'),
+(15, 'WillyWanker', '$2y$10$KWb.fJrHA2tVPqH20Xadbu6QkpLtMqPIKTnKOilAQNg2K2NyJioJ6', 'willywanker@gh.iv'),
+(16, 'Romain', '$2y$10$S9uKRqHxqYNY7JQe7zxoSeDQCBzlmUFUzJivyKMK3JEWELgbf2.zq', 'romain@gay.be');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`ID`,`user_ID`),
+  ADD KEY `fk_message_user_idx` (`user_ID`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;--
+-- Database: `phpmyadmin`
+--
+CREATE DATABASE IF NOT EXISTS `phpmyadmin` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `phpmyadmin`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__bookmark`
+--
+
+CREATE TABLE `pma__bookmark` (
+  `id` int(11) NOT NULL,
+  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `query` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__central_columns`
+--
+
+CREATE TABLE `pma__central_columns` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_length` text COLLATE utf8_bin,
+  `col_collation` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_isNull` tinyint(1) NOT NULL,
+  `col_extra` varchar(255) COLLATE utf8_bin DEFAULT '',
+  `col_default` text COLLATE utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Central list of columns';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__column_info`
+--
+
+CREATE TABLE `pma__column_info` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `comment` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `mimetype` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__designer_settings`
+--
+
+CREATE TABLE `pma__designer_settings` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `settings_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Settings related to Designer';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__export_templates`
+--
+
+CREATE TABLE `pma__export_templates` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `export_type` varchar(10) COLLATE utf8_bin NOT NULL,
+  `template_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `template_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved export templates';
+
+--
+-- Dumping data for table `pma__export_templates`
+--
+
+INSERT INTO `pma__export_templates` (`id`, `username`, `export_type`, `template_name`, `template_data`) VALUES
+(1, 'root', 'database', 'minichat.sql', '{"quick_or_custom":"quick","what":"sql","structure_or_data_forced":"0","table_select[]":["message","user"],"table_structure[]":["message","user"],"table_data[]":["message","user"],"output_format":"sendit","filename_template":"@DATABASE@","remember_template":"on","charset":"utf-8","compression":"none","maxsize":"","json_structure_or_data":"data","codegen_structure_or_data":"data","codegen_format":"0","mediawiki_structure_or_data":"structure_and_data","mediawiki_caption":"something","mediawiki_headers":"something","sql_include_comments":"something","sql_header_comment":"","sql_compatibility":"NONE","sql_structure_or_data":"structure_and_data","sql_create_table":"something","sql_auto_increment":"something","sql_create_view":"something","sql_procedure_function":"something","sql_create_trigger":"something","sql_backquotes":"something","sql_type":"INSERT","sql_insert_syntax":"both","sql_max_query_size":"50000","sql_hex_for_binary":"something","sql_utc_time":"something","ods_null":"NULL","ods_structure_or_data":"data","pdf_report_title":"","pdf_structure_or_data":"structure_and_data","csv_separator":",","csv_enclosed":"\\"","csv_escaped":"\\"","csv_terminated":"AUTO","csv_null":"NULL","csv_structure_or_data":"data","xml_structure_or_data":"data","xml_export_events":"something","xml_export_functions":"something","xml_export_procedures":"something","xml_export_tables":"something","xml_export_triggers":"something","xml_export_views":"something","xml_export_contents":"something","yaml_structure_or_data":"data","latex_caption":"something","latex_structure_or_data":"structure_and_data","latex_structure_caption":"Structure de la table @TABLE@","latex_structure_continued_caption":"Structure de la table @TABLE@ (suite)","latex_structure_label":"tab:@TABLE@-structure","latex_relation":"something","latex_comments":"something","latex_mime":"something","latex_columns":"something","latex_data_caption":"Contenu de la table @TABLE@","latex_data_continued_caption":"Contenu de la table @TABLE@ (suite)","latex_data_label":"tab:@TABLE@-data","latex_null":"\\\\textit{NULL}","phparray_structure_or_data":"data","odt_structure_or_data":"structure_and_data","odt_relation":"something","odt_comments":"something","odt_mime":"something","odt_columns":"something","odt_null":"NULL","excel_null":"NULL","excel_edition":"win","excel_structure_or_data":"data","texytext_structure_or_data":"structure_and_data","texytext_null":"NULL","htmlword_structure_or_data":"structure_and_data","htmlword_null":"NULL","":null,"lock_tables":null,"as_separate_files":null,"json_pretty_print":null,"sql_dates":null,"sql_relation":null,"sql_mime":null,"sql_use_transaction":null,"sql_disable_fk":null,"sql_views_as_tables":null,"sql_metadata":null,"sql_create_database":null,"sql_drop_table":null,"sql_if_not_exists":null,"sql_truncate":null,"sql_delayed":null,"sql_ignore":null,"ods_columns":null,"csv_removeCRLF":null,"csv_columns":null,"excel_removeCRLF":null,"excel_columns":null,"texytext_columns":null,"htmlword_columns":null}');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__favorite`
+--
+
+CREATE TABLE `pma__favorite` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Favorite tables';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__history`
+--
+
+CREATE TABLE `pma__history` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `sqlquery` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__navigationhiding`
+--
+
+CREATE TABLE `pma__navigationhiding` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Hidden items of navigation tree';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__pdf_pages`
+--
+
+CREATE TABLE `pma__pdf_pages` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `page_nr` int(10) UNSIGNED NOT NULL,
+  `page_descr` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__recent`
+--
+
+CREATE TABLE `pma__recent` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
+
+--
+-- Dumping data for table `pma__recent`
+--
+
+INSERT INTO `pma__recent` (`username`, `tables`) VALUES
+('root', '[{"db":"wordpress","table":"wp_posts"},{"db":"minichat","table":"user"},{"db":"minichat","table":"message"},{"db":"imdb","table":"movies"},{"db":"imdb","table":"authors"},{"db":"todo","table":"tasks"},{"db":"becode","table":"students"}]');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__relation`
+--
+
+CREATE TABLE `pma__relation` (
+  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__savedsearches`
+--
+
+CREATE TABLE `pma__savedsearches` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved searches';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__table_coords`
+--
+
+CREATE TABLE `pma__table_coords` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `pdf_page_number` int(11) NOT NULL DEFAULT '0',
+  `x` float UNSIGNED NOT NULL DEFAULT '0',
+  `y` float UNSIGNED NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__table_info`
+--
+
+CREATE TABLE `pma__table_info` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__table_uiprefs`
+--
+
+CREATE TABLE `pma__table_uiprefs` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `prefs` text COLLATE utf8_bin NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__tracking`
+--
+
+CREATE TABLE `pma__tracking` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `version` int(10) UNSIGNED NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
+  `schema_sql` text COLLATE utf8_bin,
+  `data_sql` longtext COLLATE utf8_bin,
+  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
+  `tracking_active` int(1) UNSIGNED NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__userconfig`
+--
+
+CREATE TABLE `pma__userconfig` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `config_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
+
+--
+-- Dumping data for table `pma__userconfig`
+--
+
+INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
+('root', '2018-03-29 13:30:54', '{"collation_connection":"utf8mb4_unicode_ci"}');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__usergroups`
+--
+
+CREATE TABLE `pma__usergroups` (
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tab` varchar(64) COLLATE utf8_bin NOT NULL,
+  `allowed` enum('Y','N') COLLATE utf8_bin NOT NULL DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User groups with configured menu items';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pma__users`
+--
+
+CREATE TABLE `pma__users` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and their assignments to user groups';
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pma__central_columns`
+--
+ALTER TABLE `pma__central_columns`
+  ADD PRIMARY KEY (`db_name`,`col_name`);
+
+--
+-- Indexes for table `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`);
+
+--
+-- Indexes for table `pma__designer_settings`
+--
+ALTER TABLE `pma__designer_settings`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`);
+
+--
+-- Indexes for table `pma__favorite`
+--
+ALTER TABLE `pma__favorite`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pma__history`
+--
+ALTER TABLE `pma__history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`,`db`,`table`,`timevalue`);
+
+--
+-- Indexes for table `pma__navigationhiding`
+--
+ALTER TABLE `pma__navigationhiding`
+  ADD PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`);
+
+--
+-- Indexes for table `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  ADD PRIMARY KEY (`page_nr`),
+  ADD KEY `db_name` (`db_name`);
+
+--
+-- Indexes for table `pma__recent`
+--
+ALTER TABLE `pma__recent`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pma__relation`
+--
+ALTER TABLE `pma__relation`
+  ADD PRIMARY KEY (`master_db`,`master_table`,`master_field`),
+  ADD KEY `foreign_field` (`foreign_db`,`foreign_table`);
+
+--
+-- Indexes for table `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`);
+
+--
+-- Indexes for table `pma__table_coords`
+--
+ALTER TABLE `pma__table_coords`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`);
+
+--
+-- Indexes for table `pma__table_info`
+--
+ALTER TABLE `pma__table_info`
+  ADD PRIMARY KEY (`db_name`,`table_name`);
+
+--
+-- Indexes for table `pma__table_uiprefs`
+--
+ALTER TABLE `pma__table_uiprefs`
+  ADD PRIMARY KEY (`username`,`db_name`,`table_name`);
+
+--
+-- Indexes for table `pma__tracking`
+--
+ALTER TABLE `pma__tracking`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`version`);
+
+--
+-- Indexes for table `pma__userconfig`
+--
+ALTER TABLE `pma__userconfig`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pma__usergroups`
+--
+ALTER TABLE `pma__usergroups`
+  ADD PRIMARY KEY (`usergroup`,`tab`,`allowed`);
+
+--
+-- Indexes for table `pma__users`
+--
+ALTER TABLE `pma__users`
+  ADD PRIMARY KEY (`username`,`usergroup`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `pma__history`
+--
+ALTER TABLE `pma__history`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  MODIFY `page_nr` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;--
+-- Database: `todo`
+--
+CREATE DATABASE IF NOT EXISTS `todo` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `todo`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `task` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `archives` enum('true','false') CHARACTER SET utf8 NOT NULL,
+  `date_creation` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;--
 -- Database: `wordpress`
 --
+CREATE DATABASE IF NOT EXISTS `wordpress` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `wordpress`;
 
 -- --------------------------------------------------------
 
@@ -222,7 +952,6 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (158, 'nav_menu_options', 'a:1:{s:8:"auto_add";a:0:{}}', 'yes'),
 (167, '_transient_twentyfifteen_categories', '1', 'yes'),
 (169, 'theme_mods_MADStheme', 'a:4:{i:0;b:0;s:18:"nav_menu_locations";a:0:{}s:18:"custom_css_post_id";i:-1;s:16:"sidebars_widgets";a:2:{s:4:"time";i:1522136509;s:4:"data";a:1:{s:19:"wp_inactive_widgets";a:10:{i:0;s:6:"text-2";i:1;s:6:"text-3";i:2;s:6:"text-4";i:3;s:6:"text-5";i:4;s:8:"search-2";i:5;s:14:"recent-posts-2";i:6;s:17:"recent-comments-2";i:7;s:10:"archives-2";i:8;s:12:"categories-2";i:9;s:6:"meta-2";}}}}', 'yes'),
-(211, 'category_children', 'a:0:{}', 'yes'),
 (267, 'recently_activated', 'a:0:{}', 'yes'),
 (418, '_site_transient_timeout_browser_0b658a9e61726056cb3e3f5c6ae0f301', '1523864389', 'no'),
 (419, '_site_transient_browser_0b658a9e61726056cb3e3f5c6ae0f301', 'a:10:{s:4:"name";s:7:"Firefox";s:7:"version";s:4:"59.0";s:8:"platform";s:5:"Linux";s:10:"update_url";s:24:"https://www.firefox.com/";s:7:"img_src";s:44:"http://s.w.org/images/browsers/firefox.png?1";s:11:"img_src_ssl";s:45:"https://s.w.org/images/browsers/firefox.png?1";s:15:"current_version";s:2:"56";s:7:"upgrade";b:0;s:8:"insecure";b:0;s:6:"mobile";b:0;}', 'no'),
@@ -233,7 +962,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (538, '_site_transient_timeout_theme_roots', '1523275319', 'no'),
 (539, '_site_transient_theme_roots', 'a:4:{s:9:"MADStheme";s:7:"/themes";s:13:"twentyfifteen";s:7:"/themes";s:15:"twentyseventeen";s:7:"/themes";s:13:"twentysixteen";s:7:"/themes";}', 'no'),
 (540, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1523273521;s:7:"checked";a:4:{s:9:"MADStheme";s:3:"0.1";s:13:"twentyfifteen";s:3:"1.9";s:15:"twentyseventeen";s:3:"1.4";s:13:"twentysixteen";s:3:"1.4";}s:8:"response";a:1:{s:15:"twentyseventeen";a:4:{s:5:"theme";s:15:"twentyseventeen";s:11:"new_version";s:3:"1.5";s:3:"url";s:45:"https://wordpress.org/themes/twentyseventeen/";s:7:"package";s:61:"https://downloads.wordpress.org/theme/twentyseventeen.1.5.zip";}}s:12:"translations";a:0:{}}', 'no'),
-(541, '_site_transient_update_plugins', 'O:8:"stdClass":5:{s:12:"last_checked";i:1523273522;s:7:"checked";a:6:{s:19:"akismet/akismet.php";s:5:"4.0.2";s:9:"hello.php";s:3:"1.6";s:45:"jackmail-newsletters/jackmail-newsletters.php";s:6:"1.0.54";s:47:"regenerate-thumbnails/regenerate-thumbnails.php";s:5:"3.0.2";s:51:"wordpress-popular-posts/wordpress-popular-posts.php";s:6:"4.0.13";s:29:"wp-mail-smtp/wp_mail_smtp.php";s:5:"1.2.5";}s:8:"response";a:1:{s:19:"akismet/akismet.php";O:8:"stdClass":11:{s:2:"id";s:21:"w.org/plugins/akismet";s:4:"slug";s:7:"akismet";s:6:"plugin";s:19:"akismet/akismet.php";s:11:"new_version";s:5:"4.0.3";s:3:"url";s:38:"https://wordpress.org/plugins/akismet/";s:7:"package";s:56:"https://downloads.wordpress.org/plugin/akismet.4.0.3.zip";s:5:"icons";a:3:{s:2:"1x";s:59:"https://ps.w.org/akismet/assets/icon-128x128.png?rev=969272";s:2:"2x";s:59:"https://ps.w.org/akismet/assets/icon-256x256.png?rev=969272";s:7:"default";s:59:"https://ps.w.org/akismet/assets/icon-256x256.png?rev=969272";}s:7:"banners";a:2:{s:2:"1x";s:61:"https://ps.w.org/akismet/assets/banner-772x250.jpg?rev=479904";s:7:"default";s:61:"https://ps.w.org/akismet/assets/banner-772x250.jpg?rev=479904";}s:11:"banners_rtl";a:0:{}s:6:"tested";s:5:"4.9.5";s:13:"compatibility";O:8:"stdClass":0:{}}}s:12:"translations";a:0:{}s:9:"no_update";a:5:{s:9:"hello.php";O:8:"stdClass":9:{s:2:"id";s:25:"w.org/plugins/hello-dolly";s:4:"slug";s:11:"hello-dolly";s:6:"plugin";s:9:"hello.php";s:11:"new_version";s:3:"1.6";s:3:"url";s:42:"https://wordpress.org/plugins/hello-dolly/";s:7:"package";s:58:"https://downloads.wordpress.org/plugin/hello-dolly.1.6.zip";s:5:"icons";a:3:{s:2:"1x";s:63:"https://ps.w.org/hello-dolly/assets/icon-128x128.jpg?rev=969907";s:2:"2x";s:63:"https://ps.w.org/hello-dolly/assets/icon-256x256.jpg?rev=969907";s:7:"default";s:63:"https://ps.w.org/hello-dolly/assets/icon-256x256.jpg?rev=969907";}s:7:"banners";a:2:{s:2:"1x";s:65:"https://ps.w.org/hello-dolly/assets/banner-772x250.png?rev=478342";s:7:"default";s:65:"https://ps.w.org/hello-dolly/assets/banner-772x250.png?rev=478342";}s:11:"banners_rtl";a:0:{}}s:45:"jackmail-newsletters/jackmail-newsletters.php";O:8:"stdClass":9:{s:2:"id";s:34:"w.org/plugins/jackmail-newsletters";s:4:"slug";s:20:"jackmail-newsletters";s:6:"plugin";s:45:"jackmail-newsletters/jackmail-newsletters.php";s:11:"new_version";s:6:"1.0.54";s:3:"url";s:51:"https://wordpress.org/plugins/jackmail-newsletters/";s:7:"package";s:70:"https://downloads.wordpress.org/plugin/jackmail-newsletters.1.0.54.zip";s:5:"icons";a:3:{s:2:"1x";s:73:"https://ps.w.org/jackmail-newsletters/assets/icon-128x128.png?rev=1629234";s:2:"2x";s:73:"https://ps.w.org/jackmail-newsletters/assets/icon-256x256.png?rev=1629234";s:7:"default";s:73:"https://ps.w.org/jackmail-newsletters/assets/icon-256x256.png?rev=1629234";}s:7:"banners";a:3:{s:2:"2x";s:76:"https://ps.w.org/jackmail-newsletters/assets/banner-1544x500.png?rev=1706951";s:2:"1x";s:75:"https://ps.w.org/jackmail-newsletters/assets/banner-772x250.png?rev=1706951";s:7:"default";s:76:"https://ps.w.org/jackmail-newsletters/assets/banner-1544x500.png?rev=1706951";}s:11:"banners_rtl";a:0:{}}s:47:"regenerate-thumbnails/regenerate-thumbnails.php";O:8:"stdClass":9:{s:2:"id";s:35:"w.org/plugins/regenerate-thumbnails";s:4:"slug";s:21:"regenerate-thumbnails";s:6:"plugin";s:47:"regenerate-thumbnails/regenerate-thumbnails.php";s:11:"new_version";s:5:"3.0.2";s:3:"url";s:52:"https://wordpress.org/plugins/regenerate-thumbnails/";s:7:"package";s:64:"https://downloads.wordpress.org/plugin/regenerate-thumbnails.zip";s:5:"icons";a:2:{s:2:"1x";s:74:"https://ps.w.org/regenerate-thumbnails/assets/icon-128x128.png?rev=1753390";s:7:"default";s:74:"https://ps.w.org/regenerate-thumbnails/assets/icon-128x128.png?rev=1753390";}s:7:"banners";a:3:{s:2:"2x";s:77:"https://ps.w.org/regenerate-thumbnails/assets/banner-1544x500.jpg?rev=1753390";s:2:"1x";s:76:"https://ps.w.org/regenerate-thumbnails/assets/banner-772x250.jpg?rev=1753390";s:7:"default";s:77:"https://ps.w.org/regenerate-thumbnails/assets/banner-1544x500.jpg?rev=1753390";}s:11:"banners_rtl";a:0:{}}s:51:"wordpress-popular-posts/wordpress-popular-posts.php";O:8:"stdClass":9:{s:2:"id";s:37:"w.org/plugins/wordpress-popular-posts";s:4:"slug";s:23:"wordpress-popular-posts";s:6:"plugin";s:51:"wordpress-popular-posts/wordpress-popular-posts.php";s:11:"new_version";s:6:"4.0.13";s:3:"url";s:54:"https://wordpress.org/plugins/wordpress-popular-posts/";s:7:"package";s:73:"https://downloads.wordpress.org/plugin/wordpress-popular-posts.4.0.13.zip";s:5:"icons";a:3:{s:2:"1x";s:76:"https://ps.w.org/wordpress-popular-posts/assets/icon-128x128.png?rev=1232659";s:2:"2x";s:76:"https://ps.w.org/wordpress-popular-posts/assets/icon-256x256.png?rev=1232659";s:7:"default";s:76:"https://ps.w.org/wordpress-popular-posts/assets/icon-256x256.png?rev=1232659";}s:7:"banners";a:2:{s:2:"1x";s:78:"https://ps.w.org/wordpress-popular-posts/assets/banner-772x250.png?rev=1130670";s:7:"default";s:78:"https://ps.w.org/wordpress-popular-posts/assets/banner-772x250.png?rev=1130670";}s:11:"banners_rtl";a:0:{}}s:29:"wp-mail-smtp/wp_mail_smtp.php";O:8:"stdClass":9:{s:2:"id";s:26:"w.org/plugins/wp-mail-smtp";s:4:"slug";s:12:"wp-mail-smtp";s:6:"plugin";s:29:"wp-mail-smtp/wp_mail_smtp.php";s:11:"new_version";s:5:"1.2.5";s:3:"url";s:43:"https://wordpress.org/plugins/wp-mail-smtp/";s:7:"package";s:55:"https://downloads.wordpress.org/plugin/wp-mail-smtp.zip";s:5:"icons";a:3:{s:2:"1x";s:65:"https://ps.w.org/wp-mail-smtp/assets/icon-128x128.png?rev=1755440";s:2:"2x";s:65:"https://ps.w.org/wp-mail-smtp/assets/icon-256x256.png?rev=1755440";s:7:"default";s:65:"https://ps.w.org/wp-mail-smtp/assets/icon-256x256.png?rev=1755440";}s:7:"banners";a:3:{s:2:"2x";s:68:"https://ps.w.org/wp-mail-smtp/assets/banner-1544x500.png?rev=1785565";s:2:"1x";s:67:"https://ps.w.org/wp-mail-smtp/assets/banner-772x250.png?rev=1785565";s:7:"default";s:68:"https://ps.w.org/wp-mail-smtp/assets/banner-1544x500.png?rev=1785565";}s:11:"banners_rtl";a:0:{}}}}', 'no');
+(541, '_site_transient_update_plugins', 'O:8:"stdClass":5:{s:12:"last_checked";i:1523273522;s:7:"checked";a:6:{s:19:"akismet/akismet.php";s:5:"4.0.2";s:9:"hello.php";s:3:"1.6";s:45:"jackmail-newsletters/jackmail-newsletters.php";s:6:"1.0.54";s:47:"regenerate-thumbnails/regenerate-thumbnails.php";s:5:"3.0.2";s:51:"wordpress-popular-posts/wordpress-popular-posts.php";s:6:"4.0.13";s:29:"wp-mail-smtp/wp_mail_smtp.php";s:5:"1.2.5";}s:8:"response";a:1:{s:19:"akismet/akismet.php";O:8:"stdClass":11:{s:2:"id";s:21:"w.org/plugins/akismet";s:4:"slug";s:7:"akismet";s:6:"plugin";s:19:"akismet/akismet.php";s:11:"new_version";s:5:"4.0.3";s:3:"url";s:38:"https://wordpress.org/plugins/akismet/";s:7:"package";s:56:"https://downloads.wordpress.org/plugin/akismet.4.0.3.zip";s:5:"icons";a:3:{s:2:"1x";s:59:"https://ps.w.org/akismet/assets/icon-128x128.png?rev=969272";s:2:"2x";s:59:"https://ps.w.org/akismet/assets/icon-256x256.png?rev=969272";s:7:"default";s:59:"https://ps.w.org/akismet/assets/icon-256x256.png?rev=969272";}s:7:"banners";a:2:{s:2:"1x";s:61:"https://ps.w.org/akismet/assets/banner-772x250.jpg?rev=479904";s:7:"default";s:61:"https://ps.w.org/akismet/assets/banner-772x250.jpg?rev=479904";}s:11:"banners_rtl";a:0:{}s:6:"tested";s:5:"4.9.5";s:13:"compatibility";O:8:"stdClass":0:{}}}s:12:"translations";a:0:{}s:9:"no_update";a:5:{s:9:"hello.php";O:8:"stdClass":9:{s:2:"id";s:25:"w.org/plugins/hello-dolly";s:4:"slug";s:11:"hello-dolly";s:6:"plugin";s:9:"hello.php";s:11:"new_version";s:3:"1.6";s:3:"url";s:42:"https://wordpress.org/plugins/hello-dolly/";s:7:"package";s:58:"https://downloads.wordpress.org/plugin/hello-dolly.1.6.zip";s:5:"icons";a:3:{s:2:"1x";s:63:"https://ps.w.org/hello-dolly/assets/icon-128x128.jpg?rev=969907";s:2:"2x";s:63:"https://ps.w.org/hello-dolly/assets/icon-256x256.jpg?rev=969907";s:7:"default";s:63:"https://ps.w.org/hello-dolly/assets/icon-256x256.jpg?rev=969907";}s:7:"banners";a:2:{s:2:"1x";s:65:"https://ps.w.org/hello-dolly/assets/banner-772x250.png?rev=478342";s:7:"default";s:65:"https://ps.w.org/hello-dolly/assets/banner-772x250.png?rev=478342";}s:11:"banners_rtl";a:0:{}}s:45:"jackmail-newsletters/jackmail-newsletters.php";O:8:"stdClass":9:{s:2:"id";s:34:"w.org/plugins/jackmail-newsletters";s:4:"slug";s:20:"jackmail-newsletters";s:6:"plugin";s:45:"jackmail-newsletters/jackmail-newsletters.php";s:11:"new_version";s:6:"1.0.54";s:3:"url";s:51:"https://wordpress.org/plugins/jackmail-newsletters/";s:7:"package";s:70:"https://downloads.wordpress.org/plugin/jackmail-newsletters.1.0.54.zip";s:5:"icons";a:3:{s:2:"1x";s:73:"https://ps.w.org/jackmail-newsletters/assets/icon-128x128.png?rev=1629234";s:2:"2x";s:73:"https://ps.w.org/jackmail-newsletters/assets/icon-256x256.png?rev=1629234";s:7:"default";s:73:"https://ps.w.org/jackmail-newsletters/assets/icon-256x256.png?rev=1629234";}s:7:"banners";a:3:{s:2:"2x";s:76:"https://ps.w.org/jackmail-newsletters/assets/banner-1544x500.png?rev=1706951";s:2:"1x";s:75:"https://ps.w.org/jackmail-newsletters/assets/banner-772x250.png?rev=1706951";s:7:"default";s:76:"https://ps.w.org/jackmail-newsletters/assets/banner-1544x500.png?rev=1706951";}s:11:"banners_rtl";a:0:{}}s:47:"regenerate-thumbnails/regenerate-thumbnails.php";O:8:"stdClass":9:{s:2:"id";s:35:"w.org/plugins/regenerate-thumbnails";s:4:"slug";s:21:"regenerate-thumbnails";s:6:"plugin";s:47:"regenerate-thumbnails/regenerate-thumbnails.php";s:11:"new_version";s:5:"3.0.2";s:3:"url";s:52:"https://wordpress.org/plugins/regenerate-thumbnails/";s:7:"package";s:64:"https://downloads.wordpress.org/plugin/regenerate-thumbnails.zip";s:5:"icons";a:2:{s:2:"1x";s:74:"https://ps.w.org/regenerate-thumbnails/assets/icon-128x128.png?rev=1753390";s:7:"default";s:74:"https://ps.w.org/regenerate-thumbnails/assets/icon-128x128.png?rev=1753390";}s:7:"banners";a:3:{s:2:"2x";s:77:"https://ps.w.org/regenerate-thumbnails/assets/banner-1544x500.jpg?rev=1753390";s:2:"1x";s:76:"https://ps.w.org/regenerate-thumbnails/assets/banner-772x250.jpg?rev=1753390";s:7:"default";s:77:"https://ps.w.org/regenerate-thumbnails/assets/banner-1544x500.jpg?rev=1753390";}s:11:"banners_rtl";a:0:{}}s:51:"wordpress-popular-posts/wordpress-popular-posts.php";O:8:"stdClass":9:{s:2:"id";s:37:"w.org/plugins/wordpress-popular-posts";s:4:"slug";s:23:"wordpress-popular-posts";s:6:"plugin";s:51:"wordpress-popular-posts/wordpress-popular-posts.php";s:11:"new_version";s:6:"4.0.13";s:3:"url";s:54:"https://wordpress.org/plugins/wordpress-popular-posts/";s:7:"package";s:73:"https://downloads.wordpress.org/plugin/wordpress-popular-posts.4.0.13.zip";s:5:"icons";a:3:{s:2:"1x";s:76:"https://ps.w.org/wordpress-popular-posts/assets/icon-128x128.png?rev=1232659";s:2:"2x";s:76:"https://ps.w.org/wordpress-popular-posts/assets/icon-256x256.png?rev=1232659";s:7:"default";s:76:"https://ps.w.org/wordpress-popular-posts/assets/icon-256x256.png?rev=1232659";}s:7:"banners";a:2:{s:2:"1x";s:78:"https://ps.w.org/wordpress-popular-posts/assets/banner-772x250.png?rev=1130670";s:7:"default";s:78:"https://ps.w.org/wordpress-popular-posts/assets/banner-772x250.png?rev=1130670";}s:11:"banners_rtl";a:0:{}}s:29:"wp-mail-smtp/wp_mail_smtp.php";O:8:"stdClass":9:{s:2:"id";s:26:"w.org/plugins/wp-mail-smtp";s:4:"slug";s:12:"wp-mail-smtp";s:6:"plugin";s:29:"wp-mail-smtp/wp_mail_smtp.php";s:11:"new_version";s:5:"1.2.5";s:3:"url";s:43:"https://wordpress.org/plugins/wp-mail-smtp/";s:7:"package";s:55:"https://downloads.wordpress.org/plugin/wp-mail-smtp.zip";s:5:"icons";a:3:{s:2:"1x";s:65:"https://ps.w.org/wp-mail-smtp/assets/icon-128x128.png?rev=1755440";s:2:"2x";s:65:"https://ps.w.org/wp-mail-smtp/assets/icon-256x256.png?rev=1755440";s:7:"default";s:65:"https://ps.w.org/wp-mail-smtp/assets/icon-256x256.png?rev=1755440";}s:7:"banners";a:3:{s:2:"2x";s:68:"https://ps.w.org/wp-mail-smtp/assets/banner-1544x500.png?rev=1785565";s:2:"1x";s:67:"https://ps.w.org/wp-mail-smtp/assets/banner-772x250.png?rev=1785565";s:7:"default";s:68:"https://ps.w.org/wp-mail-smtp/assets/banner-1544x500.png?rev=1785565";}s:11:"banners_rtl";a:0:{}}}}', 'no'),
+(569, 'category_children', 'a:0:{}', 'yes');
 
 -- --------------------------------------------------------
 
@@ -580,9 +1310,28 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (559, 210, '_thumbnail_id', '182'),
 (561, 212, 'meta-checkbox', ''),
 (562, 212, '_edit_last', '1'),
-(563, 212, '_edit_lock', '1523276725:1'),
+(563, 212, '_edit_lock', '1523282599:1'),
 (564, 212, '_thumbnail_id', '183'),
-(567, 215, 'meta-checkbox', '');
+(567, 215, 'meta-checkbox', ''),
+(705, 353, 'meta-checkbox', ''),
+(706, 354, 'meta-checkbox', 'yes'),
+(707, 354, '_edit_last', '1'),
+(708, 354, '_edit_lock', '1523283985:1'),
+(711, 356, '_wp_attached_file', '2018/04/sardines-dog1.jpg'),
+(712, 356, '_wp_attachment_metadata', 'a:4:{s:5:"width";i:190;s:6:"height";i:150;s:4:"file";s:25:"2018/04/sardines-dog1.jpg";s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}'),
+(713, 357, '_wp_attached_file', '2018/04/cookin-dog1.jpg'),
+(714, 357, '_wp_attachment_metadata', 'a:4:{s:5:"width";i:190;s:6:"height";i:150;s:4:"file";s:23:"2018/04/cookin-dog1.jpg";s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}'),
+(715, 358, '_wp_attached_file', '2018/04/skinny-dog1.jpg'),
+(716, 358, '_wp_attachment_metadata', 'a:4:{s:5:"width";i:190;s:6:"height";i:150;s:4:"file";s:23:"2018/04/skinny-dog1.jpg";s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"0";s:8:"keywords";a:0:{}}}'),
+(717, 354, '_thumbnail_id', '357'),
+(720, 361, 'meta-checkbox', 'yes'),
+(721, 361, '_edit_last', '1'),
+(722, 361, '_edit_lock', '1523283958:1'),
+(723, 361, '_thumbnail_id', '356'),
+(725, 363, 'meta-checkbox', 'yes'),
+(726, 363, '_edit_last', '1'),
+(727, 363, '_edit_lock', '1523284173:1'),
+(731, 363, '_thumbnail_id', '358');
 
 -- --------------------------------------------------------
 
@@ -944,80 +1693,20 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
 (350, 1, '2018-04-09 12:30:56', '2018-04-09 12:30:56', 'Health-conscious consumers are skilled at deciphering nutrition facts labels. We know to monitor our sodium intake, avoid carrageenan and high fructose corn syrup, and understand that even organic, all-natural potato chips are still chips.\r\n\r\n&nbsp;\r\n\r\nPet food products, however, remain a mystery. <a href="http://digest.thefarmersdog.com/the-history-of-commercial-pet-food-a-great-american-marketing-story/" target="_blank" rel="noopener">Pet food marketing</a> aims to paint a picture of health (think: images of farms and fresh vegetables on a shelf-stable bag of brown kibble), and every company promises to be the best option for your dog. It’s tempting to throw in the towel on label vigilance in the pet food aisle and blindly believe the bags, but understanding your dog’s food labels is just as important as carefully examining your own.\r\n\r\n&nbsp;\r\n\r\nStep one: learn to recognize the food label tricks that most pet companies are using.\r\n\r\n&nbsp;\r\n<h4>First ingredient</h4>\r\n&nbsp;\r\n\r\nJust because an ingredient is listed first on a label, doesn’t mean it’s the most potent in the product. Pet food companies know that most consumers are searching for a real meat source in that prized first ingredient slot. It’s for this reason that they break up their ingredients into various equal amounts to trick consumers who are simply scanning for that premiere protein.\r\n\r\n&nbsp;\r\n\r\nFor example, a product label containing 20% meat and 80% starches could either look like:\r\n\r\n&nbsp;\r\n\r\nRice (30%), peas (30%), Beef (20%), potatoes (20%)\r\n\r\n&nbsp;\r\n\r\n<em><strong>or:</strong></em>\r\n\r\n&nbsp;\r\n\r\nBeef (10%), beef heart (10%), long grain rice (10%), brown rice (10%), white rice (10%), split peas (10%), pea protein (10%), english peas (10%), potato (10%), potato starch (10%).\r\n\r\n&nbsp;\r\n\r\nOn top of this, pet food labels are created before the product is cooked and processed, meaning the meat weighs significantly more. Beef loses weight (i.e. moisture) in the cooking process, while rice gains weight. This means those starches end up occupying even more volume in the final product.\r\n\r\n&nbsp;\r\n<h4>“With…”</h4>\r\n&nbsp;\r\n\r\nA pet food bag claiming to be filled “with chicken” or “with real beef” is trickier than you’d assume. “With” simply means that the aforementioned ingredients must not make up less than 3% of the product’s total weight. Many pet owners purchase bags made “with” ingredients they recognize, not realizing that they are only technically required to make up 3% of the total package. The other 97%? Decidedly less familiar.\r\n\r\n&nbsp;\r\n<h4>100% organic</h4>\r\n&nbsp;\r\n\r\nBranding a product organic has become a proxy for actual nutrition information. A quick refresher: organic foods must be made without the use of antibiotics, artificial growth hormones, high fructose corn syrup, artificial dyes (which, btw, can be made from things like coal tar), artificial sweeteners derived from chemicals, synthetically created chemical pesticide and fertilizers, genetically engineered protein, sewage sludge, and irradiation. In other words, food deemed “organic” should really just be called “food,” because neither you nor your pup should be eating any of the other stuff, anyway.\r\n\r\n&nbsp;\r\n\r\nBut even organic cookies shouldn’t be eaten all day, every day in lieu of fresh food. (And for the record, all commercial kibble — even the organic variety — is so highly processed that much of the nutritional integrity of any individual ingredient is lost by the time it reaches your dog’s bowl.) Watch out for bags touting “organix” ingredients. Not entirely sure what “organix” means? We aren’t either.\r\n\r\n&nbsp;\r\n<h4>Made “with” organic ingredients</h4>\r\n&nbsp;\r\n\r\nThis bold promise simply means that 70% of the ingredients in a product with this label are considered organic, while a product labeled “all organic” guarantees that 95% of the total ingredients meet this criteria. But, again, organic doesn’t mean much when an ingredient has been burnt to a crisp and exposed to heat and moisture during extrusion, the process through which kibble is made.\r\n\r\n&nbsp;\r\n<h4>Feed-grade</h4>\r\n&nbsp;\r\n\r\nFeed-grade is a far cry from food. Pet products with this label are not held to food safety standards and are considered unsuitable for human ingestion. Practically any ingredient is suitable for a feed-grade product, including waste, fats and grease, and dead animals from farms, ranches, and shelters. Some feed-grade pet products do use higher quality ingredients, but there is no method for consumers to differentiate between feed grade products.\r\n\r\n&nbsp;\r\n<h4>Human-grade</h4>\r\n&nbsp;\r\n\r\nThis term simply means that a product in its entirety (not just individual ingredients) is safe for human consumption. A truly human grade pet food must be manufactured according to food safety standards and made with 100% food ingredients and human-grade supplements. This label has everything to do with safety and quality, and little to do with cook process. A wide array of pet foods — including kibble, fresh, and dehydrated — can all be human grade, with varying degrees of natural nutrients depending on how they are prepared. By regulation, raw pet foods are not allowed to claim that they are human grade.\r\n\r\n&nbsp;\r\n<h4>Natural</h4>\r\n&nbsp;\r\n\r\nThe USDA defines “natural” as a product that has no artificial ingredients or added color, but doesn’t account for additives like antibiotics, growth hormones, or other chemicals. The term is so broad that the FDA is still struggling to come up with a legal definition for it. Legally speaking, there is no required difference between foods labeled “all-natural” and “natural.” Natural is not necessarily organic, but organic must be considered natural.\r\n\r\n&nbsp;\r\n<h4>Gourmet</h4>\r\n&nbsp;\r\n\r\nWe associate the term with fresh veggies and farm-to-table dining, but there are no legal regulations that determine when this term can be used on food labels.\r\n\r\n&nbsp;\r\n<h4>Grain-free</h4>\r\n&nbsp;\r\n\r\nA product sans grain is technically free of corn, soy, wheat, barley, and oats. Grain-free products, however, are not necessarily low-carb; in reality, grain-free dog foods tend to have just as many carbohydrates as dog food that is not grain-free, especially when high-starch items, like potatoes, are used to replace grain.\r\n\r\n&nbsp;\r\n<h4>Cage-free and/or free-range</h4>\r\n&nbsp;\r\n\r\n“Cage-free” is exactly what it sounds like: poultry that hasn’t been raised in a cage. But don’t be fooled — cage-free isn’t as free or spacious as it sounds. Chickens raised for meat (even those that are “cage-free”) are typically kept in tight, indoor spaces that are cramped and uncomfortable. By USDA definition, “cage-free” and “free-range” only require that animals have had access to the outside.\r\n\r\n&nbsp;\r\n<h4>Grass-fed</h4>\r\n&nbsp;\r\n\r\nThough we might often associate “grass-fed” with “free-range,” one does not guarantee the other. Technically speaking, cows can be grass-fed and still contained, only let out to graze for short periods at a time. Though the USDA regulates how the term is used on labels, it does not regulate how, in practice, the “grass-fed” animals are actually fed.\r\n\r\nIn the end, we recommend feeding only from the <a href="http://thefarmersdog.com" target="_blank" rel="noopener">best dog food companies</a> you know you can trust, and ideally choosing <a href="http://digest.thefarmersdog.com/6-benefits-of-feeding-human-grade-dog-food/" target="_blank" rel="noopener">fresh food</a> whenever possible. Stick to foods you can see and the whole feeding process becomes a lot less tricky.\r\n\r\n&nbsp;\r\n\r\n<em>Image: <a href="https://www.instagram.com/jenikrauze/">@jenikrauze</a></em>', 'The 11 Dog Food Label Tricks Every Owner Needs to Know', '', 'inherit', 'closed', 'closed', '', '176-revision-v1', '', '', '2018-04-09 12:30:56', '2018-04-09 12:30:56', '', 176, 'http://localhost/MADS-foodog/wordpress/index.php/2018/04/09/176-revision-v1/', 0, 'revision', '', 0),
 (351, 1, '2018-04-09 12:31:13', '2018-04-09 12:31:13', 'Health-conscious consumers are skilled at deciphering nutrition facts labels. We know to monitor our sodium intake, avoid carrageenan and high fructose corn syrup, and understand that even organic, all-natural potato chips are still chips.\r\n\r\n&nbsp;\r\n\r\nPet food products, however, remain a mystery. <a href="http://digest.thefarmersdog.com/the-history-of-commercial-pet-food-a-great-american-marketing-story/" target="_blank" rel="noopener">Pet food marketing</a> aims to paint a picture of health (think: images of farms and fresh vegetables on a shelf-stable bag of brown kibble), and every company promises to be the best option for your dog. It’s tempting to throw in the towel on label vigilance in the pet food aisle and blindly believe the bags, but understanding your dog’s food labels is just as important as carefully examining your own.\r\n\r\n&nbsp;\r\n\r\nStep one: learn to recognize the food label tricks that most pet companies are using.\r\n\r\n&nbsp;\r\n<h4>First ingredient</h4>\r\n&nbsp;\r\n\r\nJust because an ingredient is listed first on a label, doesn’t mean it’s the most potent in the product. Pet food companies know that most consumers are searching for a real meat source in that prized first ingredient slot. It’s for this reason that they break up their ingredients into various equal amounts to trick consumers who are simply scanning for that premiere protein.\r\n\r\n&nbsp;\r\n\r\nFor example, a product label containing 20% meat and 80% starches could either look like:\r\n\r\n&nbsp;\r\n\r\nRice (30%), peas (30%), Beef (20%), potatoes (20%)\r\n\r\n&nbsp;\r\n\r\n<em><strong>or:</strong></em>\r\n\r\n&nbsp;\r\n\r\nBeef (10%), beef heart (10%), long grain rice (10%), brown rice (10%), white rice (10%), split peas (10%), pea protein (10%), english peas (10%), potato (10%), potato starch (10%).\r\n\r\n&nbsp;\r\n\r\nOn top of this, pet food labels are created before the product is cooked and processed, meaning the meat weighs significantly more. Beef loses weight (i.e. moisture) in the cooking process, while rice gains weight. This means those starches end up occupying even more volume in the final product.\r\n\r\n&nbsp;\r\n<h4>“With…”</h4>\r\n&nbsp;\r\n\r\nA pet food bag claiming to be filled “with chicken” or “with real beef” is trickier than you’d assume. “With” simply means that the aforementioned ingredients must not make up less than 3% of the product’s total weight. Many pet owners purchase bags made “with” ingredients they recognize, not realizing that they are only technically required to make up 3% of the total package. The other 97%? Decidedly less familiar.\r\n\r\n&nbsp;\r\n<h4>100% organic</h4>\r\n&nbsp;\r\n\r\nBranding a product organic has become a proxy for actual nutrition information. A quick refresher: organic foods must be made without the use of antibiotics, artificial growth hormones, high fructose corn syrup, artificial dyes (which, btw, can be made from things like coal tar), artificial sweeteners derived from chemicals, synthetically created chemical pesticide and fertilizers, genetically engineered protein, sewage sludge, and irradiation. In other words, food deemed “organic” should really just be called “food,” because neither you nor your pup should be eating any of the other stuff, anyway.\r\n\r\n&nbsp;\r\n\r\nBut even organic cookies shouldn’t be eaten all day, every day in lieu of fresh food. (And for the record, all commercial kibble — even the organic variety — is so highly processed that much of the nutritional integrity of any individual ingredient is lost by the time it reaches your dog’s bowl.) Watch out for bags touting “organix” ingredients. Not entirely sure what “organix” means? We aren’t either.\r\n\r\n&nbsp;\r\n<h4>Made “with” organic ingredients</h4>\r\n&nbsp;\r\n\r\nThis bold promise simply means that 70% of the ingredients in a product with this label are considered organic, while a product labeled “all organic” guarantees that 95% of the total ingredients meet this criteria. But, again, organic doesn’t mean much when an ingredient has been burnt to a crisp and exposed to heat and moisture during extrusion, the process through which kibble is made.\r\n\r\n&nbsp;\r\n<h4>Feed-grade</h4>\r\n&nbsp;\r\n\r\nFeed-grade is a far cry from food. Pet products with this label are not held to food safety standards and are considered unsuitable for human ingestion. Practically any ingredient is suitable for a feed-grade product, including waste, fats and grease, and dead animals from farms, ranches, and shelters. Some feed-grade pet products do use higher quality ingredients, but there is no method for consumers to differentiate between feed grade products.\r\n\r\n&nbsp;\r\n<h4>Human-grade</h4>\r\n&nbsp;\r\n\r\nThis term simply means that a product in its entirety (not just individual ingredients) is safe for human consumption. A truly human grade pet food must be manufactured according to food safety standards and made with 100% food ingredients and human-grade supplements. This label has everything to do with safety and quality, and little to do with cook process. A wide array of pet foods — including kibble, fresh, and dehydrated — can all be human grade, with varying degrees of natural nutrients depending on how they are prepared. By regulation, raw pet foods are not allowed to claim that they are human grade.\r\n\r\n&nbsp;\r\n<h4>Natural</h4>\r\n&nbsp;\r\n\r\nThe USDA defines “natural” as a product that has no artificial ingredients or added color, but doesn’t account for additives like antibiotics, growth hormones, or other chemicals. The term is so broad that the FDA is still struggling to come up with a legal definition for it. Legally speaking, there is no required difference between foods labeled “all-natural” and “natural.” Natural is not necessarily organic, but organic must be considered natural.\r\n\r\n&nbsp;\r\n<h4>Gourmet</h4>\r\n&nbsp;\r\n\r\nWe associate the term with fresh veggies and farm-to-table dining, but there are no legal regulations that determine when this term can be used on food labels.\r\n\r\n&nbsp;\r\n<h4>Grain-free</h4>\r\n&nbsp;\r\n\r\nA product sans grain is technically free of corn, soy, wheat, barley, and oats. Grain-free products, however, are not necessarily low-carb; in reality, grain-free dog foods tend to have just as many carbohydrates as dog food that is not grain-free, especially when high-starch items, like potatoes, are used to replace grain.\r\n\r\n&nbsp;\r\n<h4>Cage-free and/or free-range</h4>\r\n&nbsp;\r\n\r\n“Cage-free” is exactly what it sounds like: poultry that hasn’t been raised in a cage. But don’t be fooled — cage-free isn’t as free or spacious as it sounds. Chickens raised for meat (even those that are “cage-free”) are typically kept in tight, indoor spaces that are cramped and uncomfortable. By USDA definition, “cage-free” and “free-range” only require that animals have had access to the outside.\r\n\r\n&nbsp;\r\n<h4>Grass-fed</h4>\r\n&nbsp;\r\n\r\nThough we might often associate “grass-fed” with “free-range,” one does not guarantee the other. Technically speaking, cows can be grass-fed and still contained, only let out to graze for short periods at a time. Though the USDA regulates how the term is used on labels, it does not regulate how, in practice, the “grass-fed” animals are actually fed.\r\n\r\nIn the end, we recommend feeding only from the <a href="http://thefarmersdog.com" target="_blank" rel="noopener">best dog food companies</a> you know you can trust, and ideally choosing <a href="http://digest.thefarmersdog.com/6-benefits-of-feeding-human-grade-dog-food/" target="_blank" rel="noopener">fresh food</a> whenever possible. Stick to foods you can see and the whole feeding process becomes a lot less tricky.\r\n\r\n&nbsp;\r\n\r\n<em>Image: <a href="https://www.instagram.com/jenikrauze/">@jenikrauze</a></em>', 'The 11 Dog Food Label Tricks Every Owner Needs to Know', '', 'inherit', 'closed', 'closed', '', '145-revision-v1', '', '', '2018-04-09 12:31:13', '2018-04-09 12:31:13', '', 145, 'http://localhost/MADS-foodog/wordpress/index.php/2018/04/09/145-revision-v1/', 0, 'revision', '', 0),
-(352, 1, '2018-04-09 12:32:33', '2018-04-09 12:32:33', 'There’s a common misconception that if you aren’t ready to<a href="http://digest.thefarmersdog.com/the-rescue-runways-guide-to-adopting-a-dog/" target="_blank" rel="noopener"> adopt a dog</a>, you can’t help a homeless pet. While adoption is one of the biggest ways to make an impact, it’s certainly not the only one. Here are a few creative ways you can get involved and make a real difference in the lives of rescue pets.\r\n\r\n&nbsp;\r\n<h5>Foster</h5>\r\nMany people can’t commit to a permanent adoption due to busy schedules, traveling, or expenses. Holding off on adopting is a responsible decision when you know you can’t care for an animal long-term, but if you have a two or four week opening on your calendar, fostering might be for you. Plenty of local rescues need foster homes for animals, and sometimes organizations will even pay for all the expenses as long as you can provide love and shelter. It might be hard to say goodbye at the end of the foster stay, but remember that you’ve helped free up space for that organization to take in even more animals.\r\n\r\n&nbsp;\r\n<h5>Volunteer</h5>\r\nWalk into any shelter and ask if they need help and you’ll be hard pressed to find one that will turn you down. It takes a village to run any nonprofit and when you have animals that need to be cared for, it’s that much more important to have volunteers. Whether you’re looking to help with marketing, fundraising, or simply want to <a href="http://digest.thefarmersdog.com/the-importance-of-letting-your-dog-sniff/" target="_blank" rel="noopener">walk dogs</a>, your skill set and time will be put to good use.\r\n\r\n&nbsp;\r\n<h5>Educate</h5>\r\nSo you’re allergic to anything with four legs but still want to help in the plight to save animals. Become an educator! Often times, rescues already have some sort of program in place to educate the community about helping their local pet population. You can go to schools, religious organizations, or businesses and host a discussion on spay/neuter, how to <a href="http://digest.thefarmersdog.com/dangerous-items-dogs-hiding-home/" target="_blank" rel="noopener">care for pets</a>, and why adoption is important. Education is one of the most powerful tools in the fight against homelessness for pets.\r\n\r\n&nbsp;\r\n<h5>Fundraise</h5>\r\nIf you like to host events or plan parties, consider organizing a fundraiser for your local shelter. It can be as simple as a bake sale or as extravagant as a gala; anything you can contribute will be an asset. Partner with a local boutique for a Shop Your Cause event, or ask your gym to host a workout fundraiser. Get creative with it and do something that you enjoy. In the end, your local shelter will appreciate whatever amount you raise.\r\n\r\n&nbsp;\r\n<h5>Donate</h5>\r\nIf you’re short on time and resources, skip that latte and donate $5 to a rescue of your choice instead. If you want to make a more direct impact, many organizations have a <a href="http://digest.thefarmersdog.com/hurricane-harvey-how-to-help/">wish list</a> of items they need. You can usually find these lists under the donations tab on their website, or you can reach out to them directly and ask. Whether you can gift a blanket or a month’s supply of heart worm medication, your donation will help an animal in need.\r\n\r\n&nbsp;\r\n\r\n<em>Image: <a href="https://www.instagram.com/butterandwilson/" target="_blank" rel="noopener">@butterandwilson</a></em>\r\n\r\n&nbsp;', 'Here’s How to Help Homeless Dogs Without Adopting', '', 'inherit', 'closed', 'closed', '', '210-revision-v1', '', '', '2018-04-09 12:32:33', '2018-04-09 12:32:33', '', 210, 'http://localhost/MADS-foodog/wordpress/index.php/2018/04/09/210-revision-v1/', 0, 'revision', '', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_termmeta`
---
-
-CREATE TABLE `wp_termmeta` (
-  `meta_id` bigint(20) UNSIGNED NOT NULL,
-  `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wp_terms`
---
-
-CREATE TABLE `wp_terms` (
-  `term_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `slug` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
-  `term_group` bigint(10) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-
---
--- Dumping data for table `wp_terms`
---
-
-INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
-(1, 'Uncategorized', 'uncategorized', 0),
-(2, 'Categorie', 'categorie', 0),
-(3, 'Nutrition', 'nutrition', 0),
-(4, 'Wellness', 'wellness', 0),
-(5, 'Lifestyle', 'lifestyle', 0),
-(6, 'Community', 'community', 0),
-(7, 'lorem', 'lorem', 0),
-(8, 'lethargic', 'lethargic', 0),
-(9, 'Halloween', 'halloween', 0),
-(10, 'Healthy', 'healthy', 0),
-(11, 'Constipation', 'constipation', 0),
-(12, 'Therapy', 'therapy', 0),
-(13, 'Working hard', 'working-hard', 0),
-(14, 'Family', 'family', 0),
-(15, 'Running away', 'running-away', 0),
-(16, 'tricks', 'tricks', 0),
-(17, 'dog', 'dog', 0),
-(18, 'food', 'food', 0),
-(19, 'pumpkins for dogs', 'pumpkins-for-dogs', 0),
-(20, 'parsley', 'parsley', 0),
-(21, 'Probiotics', 'probiotics', 0),
-(22, 'Mint for Dogs', 'mint-for-dogs', 0),
-(23, 'sage for dogs', 'sage-for-dogs', 0),
-(24, 'olive oil for dogs', 'olive-oil-for-dogs', 0),
-(25, 'pumpkin seeds for dogs', 'pumpkin-seeds-for-dogs', 0),
-(26, 'Apple Cider Vinegar for Dogs', 'apple-cider-vinegar-for-dogs', 0),
-(27, 'Table Scraps for Dogs', 'table-scraps-for-dogs', 0),
-(28, 'Parsley for Dogs', 'parsley-for-dogs', 0),
-(29, 'Arielle Charnas', 'arielle-charnas', 0),
-(30, 'allergies', 'allergies', 0),
-(31, 'vets', 'vets', 0),
-(32, 'Dr. Katy', 'dr-katy', 0),
-(33, 'Lauren Hayes', 'lauren-hayes', 0),
-(34, 'vitamin', 'vitamin', 0),
-(35, 'fashion', 'fashion', 0),
-(36, 'blogger', 'blogger', 0),
-(37, 'shelter dogs', 'shelter-dogs', 0),
-(38, 'dOGUMENTA', 'dogumenta', 0),
-(39, 'hurricane harvey', 'hurricane-harvey', 0),
-(40, 'homeless dogs', 'homeless-dogs', 0),
-(41, 'irma', 'irma', 0);
+(352, 1, '2018-04-09 12:32:33', '2018-04-09 12:32:33', 'There’s a common misconception that if you aren’t ready to<a href="http://digest.thefarmersdog.com/the-rescue-runways-guide-to-adopting-a-dog/" target="_blank" rel="noopener"> adopt a dog</a>, you can’t help a homeless pet. While adoption is one of the biggest ways to make an impact, it’s certainly not the only one. Here are a few creative ways you can get involved and make a real difference in the lives of rescue pets.\r\n\r\n&nbsp;\r\n<h5>Foster</h5>\r\nMany people can’t commit to a permanent adoption due to busy schedules, traveling, or expenses. Holding off on adopting is a responsible decision when you know you can’t care for an animal long-term, but if you have a two or four week opening on your calendar, fostering might be for you. Plenty of local rescues need foster homes for animals, and sometimes organizations will even pay for all the expenses as long as you can provide love and shelter. It might be hard to say goodbye at the end of the foster stay, but remember that you’ve helped free up space for that organization to take in even more animals.\r\n\r\n&nbsp;\r\n<h5>Volunteer</h5>\r\nWalk into any shelter and ask if they need help and you’ll be hard pressed to find one that will turn you down. It takes a village to run any nonprofit and when you have animals that need to be cared for, it’s that much more important to have volunteers. Whether you’re looking to help with marketing, fundraising, or simply want to <a href="http://digest.thefarmersdog.com/the-importance-of-letting-your-dog-sniff/" target="_blank" rel="noopener">walk dogs</a>, your skill set and time will be put to good use.\r\n\r\n&nbsp;\r\n<h5>Educate</h5>\r\nSo you’re allergic to anything with four legs but still want to help in the plight to save animals. Become an educator! Often times, rescues already have some sort of program in place to educate the community about helping their local pet population. You can go to schools, religious organizations, or businesses and host a discussion on spay/neuter, how to <a href="http://digest.thefarmersdog.com/dangerous-items-dogs-hiding-home/" target="_blank" rel="noopener">care for pets</a>, and why adoption is important. Education is one of the most powerful tools in the fight against homelessness for pets.\r\n\r\n&nbsp;\r\n<h5>Fundraise</h5>\r\nIf you like to host events or plan parties, consider organizing a fundraiser for your local shelter. It can be as simple as a bake sale or as extravagant as a gala; anything you can contribute will be an asset. Partner with a local boutique for a Shop Your Cause event, or ask your gym to host a workout fundraiser. Get creative with it and do something that you enjoy. In the end, your local shelter will appreciate whatever amount you raise.\r\n\r\n&nbsp;\r\n<h5>Donate</h5>\r\nIf you’re short on time and resources, skip that latte and donate $5 to a rescue of your choice instead. If you want to make a more direct impact, many organizations have a <a href="http://digest.thefarmersdog.com/hurricane-harvey-how-to-help/">wish list</a> of items they need. You can usually find these lists under the donations tab on their website, or you can reach out to them directly and ask. Whether you can gift a blanket or a month’s supply of heart worm medication, your donation will help an animal in need.\r\n\r\n&nbsp;\r\n\r\n<em>Image: <a href="https://www.instagram.com/butterandwilson/" target="_blank" rel="noopener">@butterandwilson</a></em>\r\n\r\n&nbsp;', 'Here’s How to Help Homeless Dogs Without Adopting', '', 'inherit', 'closed', 'closed', '', '210-revision-v1', '', '', '2018-04-09 12:32:33', '2018-04-09 12:32:33', '', 210, 'http://localhost/MADS-foodog/wordpress/index.php/2018/04/09/210-revision-v1/', 0, 'revision', '', 0),
+(353, 1, '2018-04-09 14:11:37', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2018-04-09 14:11:37', '0000-00-00 00:00:00', '', 0, 'http://localhost/MADS-foodog/wordpress/?p=353', 0, 'post', '', 0),
+(354, 1, '2018-04-09 14:15:13', '2018-04-09 14:15:13', 'So you’ve discovered the many issues with <a href="http://digest.thefarmersdog.com/the-history-of-commercial-pet-food-a-great-american-marketing-story/" target="_blank" rel="noopener">commercial pet food</a> and have decided that a home cooked diet is <a href="http://digest.thefarmersdog.com/5-benefits-of-feeding-human-grade-dog-food/" target="_blank" rel="noopener">much healthier</a> for your dog. But do you know about the importance of properly balancing your dog’s home cooked meals?\r\n\r\n&nbsp;\r\n\r\nA plate of fresh vegetables, lean protein, and a smart starch may leave <i>you</i> feeling fueled, but there are different guidelines to follow when creating a complete meal for your pet. In other words, that bowl of chicken, spinach, and rice that you’re feeding your dog may actually be doing him more harm than good.\r\n\r\n&nbsp;\r\n\r\nDogs need a nuanced combination of vitamins and minerals to be truly nourished, and it’s extremely difficult for pet owners to come up with balanced recipes or create appropriate meals on their own that are safe for long-term feeding. In an effort to examine this conundrum, a <a href="https://www.ucdavis.edu/news/homemade-dog-food-recipes-can-be-risky-business-study-finds">UC Davis study</a> analyzed 200 recipes for dogs using sources like veterinary textbooks, pet care books, and websites. The study revealed that <b>95% of the recipes</b> they examined lacked at least one vital nutrient for dogs, and 83% percent had multiple nutrient deficiencies.\r\n\r\n&nbsp;\r\n\r\nEven home cooked meals supplemented with a multivitamin won’t sufficiently satisfy your dog’s dietary requirements or replicate how certain key ingredients work together to meet your dog’s nutritional needs.\r\n\r\n&nbsp;\r\n\r\nNot convinced? Let’s take a closer look at the most common nutrient deficiencies that can result from an imbalanced homemade diet.\r\n\r\n&nbsp;\r\n<h4>Zinc</h4>\r\n&nbsp;\r\n\r\nZinc has many essential functions in the body including protein synthesis, skin and wound healing, and stabilizing DNA/RNA structures and cell membranes. We told you it was essential. Although relatively non toxic, zinc can also interfere with the absorption of other minerals if consumed in large quantities, so as is the case with so much in life, balance is key.\r\n<h4>Choline</h4>\r\n&nbsp;\r\n\r\nCholine plays a wide ranging role in your dog’s nutrition and can have a direct impact on liver function. This macronutrient is a structural part of cell membranes and lipoproteins, which are essential for lipid/fat transfer throughout the body. Over time, choline deficiencies can affect normal liver function and lead to the accumulation of fat in the liver.\r\n<h4>Vitamins D &amp; E</h4>\r\n&nbsp;\r\n\r\nThere are two important forms of vitamin D: vitamin D2 (mainly found in plants) and vitamin D3 (which is found in fatty meats and liver). The primary function of vitamin D is to enhance intestinal absorption of calcium and phosphorus and maintain control of calcium homeostasis within the body.\r\n\r\n&nbsp;\r\n\r\nVitamin E is the major fat-soluble antioxidant present throughout the body and tissues and prevents oxidative damage to cell membranes and DNA/RNA structures. In other words, it’s pretty crucial. Research has shown that vitamin D deficiencies in dogs can lead to rickets and bone deformities, while vitamin E deficiencies manifest as degenerative muscle diseases associated with muscle weakness and reproductive failure. Don’t skimp on this duo.\r\n<h4>Copper</h4>\r\n&nbsp;\r\n\r\nCopper is a trace mineral and is incorporated in a variety of proteins and enzymes which perform essential functions for your dog. These include the formation and maintenance of bone and connective tissue, the formation of red blood cells, and normal nerve fiber formation. Side effects of a copper deficiency include connective tissue disorders and loss of hair pigmentation.\r\n\r\n&nbsp;\r\n<h4>Long-chain omega-3 fatty acids EPA &amp; DHA</h4>\r\n&nbsp;\r\n\r\nThese babies are a mouthful, but their purpose can be summarized in two words: brain function.  Long chain omega 3 fatty acids (typically found in cold water fish and algae) are important cell membrane components involved in cell signaling and are essential for normal function of the brain and retina.\r\n\r\n&nbsp;\r\n<h4>Calcium</h4>\r\n&nbsp;\r\n\r\nCalcium serves two major functions: it’s a structural component of bones and teeth and a cellular messenger involved in nerve impulse transmission. Low calcium levels in a dog’s blood — aka hypocalcemia — can become a serious condition resulting in spontaneous bone fractures and nerve damage. Diets containing mainly meat without additional calcium (hey chicken and rice, we’re looking at you) are a common cause of calcium deficiencies.\r\n\r\nSo what’s the answer for the pet owner who’s on a mission to feed mindfully? Grocery shopping, cooking, and properly balancing a home cooked diet for your dog can feel like a full-time job (or a science project), but there are a few options for pet owners who want to feed their dog the very best home cooked food:\r\n\r\n1. Consult with a board-certified veterinary nutritionist about nutritionally appropriate recipes that are safe for long term feeding.\r\n\r\n2. Find a reputable company that can provide you with a <a href="http://thefarmersdog.com/diy" target="_blank" rel="noopener">specially formulated vitamin mix</a> and recipe that, together, will create a safe and balanced diet.\r\n\r\n3. Get balanced, home cooked meals made fresh for your dog and <a href="http://thefarmersdog.com" target="_blank" rel="noopener">delivered to your door</a>.\r\n\r\nKnow someone who manages to juggle life while being a chef for their dog? We’re sure their furry loved one is grateful! Just make sure they understand the importance of balancing that doggy diet, too.\r\n\r\n<em>Image: <a href="https://www.instagram.com/milletandlara/" target="_blank" rel="noopener">@milletandlara</a></em>', 'Cooking for Your Dog? Watch Out for These Nutrient Deficiencies', '', 'publish', 'open', 'open', '', 'cooking-for-your-dog-watch-out-for-these-nutrient-deficiencies', '', '', '2018-04-09 14:26:08', '2018-04-09 14:26:08', '', 0, 'http://localhost/MADS-foodog/wordpress/?p=354', 0, 'post', '', 0),
+(355, 1, '2018-04-09 14:15:13', '2018-04-09 14:15:13', 'So you’ve discovered the many issues with <a href="http://digest.thefarmersdog.com/the-history-of-commercial-pet-food-a-great-american-marketing-story/" target="_blank" rel="noopener">commercial pet food</a> and have decided that a home cooked diet is <a href="http://digest.thefarmersdog.com/5-benefits-of-feeding-human-grade-dog-food/" target="_blank" rel="noopener">much healthier</a> for your dog. But do you know about the importance of properly balancing your dog’s home cooked meals?\r\n\r\nA plate of fresh vegetables, lean protein, and a smart starch may leave <i>you</i> feeling fueled, but there are different guidelines to follow when creating a complete meal for your pet. In other words, that bowl of chicken, spinach, and rice that you’re feeding your dog may actually be doing him more harm than good.\r\n\r\nDogs need a nuanced combination of vitamins and minerals to be truly nourished, and it’s extremely difficult for pet owners to come up with balanced recipes or create appropriate meals on their own that are safe for long-term feeding. In an effort to examine this conundrum, a <a href="https://www.ucdavis.edu/news/homemade-dog-food-recipes-can-be-risky-business-study-finds">UC Davis study</a> analyzed 200 recipes for dogs using sources like veterinary textbooks, pet care books, and websites. The study revealed that <b>95% of the recipes</b> they examined lacked at least one vital nutrient for dogs, and 83% percent had multiple nutrient deficiencies.\r\n\r\nEven home cooked meals supplemented with a multivitamin won’t sufficiently satisfy your dog’s dietary requirements or replicate how certain key ingredients work together to meet your dog’s nutritional needs.\r\n\r\nNot convinced? Let’s take a closer look at the most common nutrient deficiencies that can result from an imbalanced homemade diet.\r\n<h4>Zinc</h4>\r\nZinc has many essential functions in the body including protein synthesis, skin and wound healing, and stabilizing DNA/RNA structures and cell membranes. We told you it was essential. Although relatively non toxic, zinc can also interfere with the absorption of other minerals if consumed in large quantities, so as is the case with so much in life, balance is key.\r\n<h4>Choline</h4>\r\nCholine plays a wide ranging role in your dog’s nutrition and can have a direct impact on liver function. This macronutrient is a structural part of cell membranes and lipoproteins, which are essential for lipid/fat transfer throughout the body. Over time, choline deficiencies can affect normal liver function and lead to the accumulation of fat in the liver.\r\n<h4>Vitamins D &amp; E</h4>\r\nThere are two important forms of vitamin D: vitamin D2 (mainly found in plants) and vitamin D3 (which is found in fatty meats and liver). The primary function of vitamin D is to enhance intestinal absorption of calcium and phosphorus and maintain control of calcium homeostasis within the body.\r\n\r\nVitamin E is the major fat-soluble antioxidant present throughout the body and tissues and prevents oxidative damage to cell membranes and DNA/RNA structures. In other words, it’s pretty crucial. Research has shown that vitamin D deficiencies in dogs can lead to rickets and bone deformities, while vitamin E deficiencies manifest as degenerative muscle diseases associated with muscle weakness and reproductive failure. Don’t skimp on this duo.\r\n<h4>Copper</h4>\r\nCopper is a trace mineral and is incorporated in a variety of proteins and enzymes which perform essential functions for your dog. These include the formation and maintenance of bone and connective tissue, the formation of red blood cells, and normal nerve fiber formation. Side effects of a copper deficiency include connective tissue disorders and loss of hair pigmentation.\r\n<h4>Long-chain omega-3 fatty acids EPA &amp; DHA</h4>\r\nThese babies are a mouthful, but their purpose can be summarized in two words: brain function.  Long chain omega 3 fatty acids (typically found in cold water fish and algae) are important cell membrane components involved in cell signaling and are essential for normal function of the brain and retina.\r\n<h4>Calcium</h4>\r\nCalcium serves two major functions: it’s a structural component of bones and teeth and a cellular messenger involved in nerve impulse transmission. Low calcium levels in a dog’s blood — aka hypocalcemia — can become a serious condition resulting in spontaneous bone fractures and nerve damage. Diets containing mainly meat without additional calcium (hey chicken and rice, we’re looking at you) are a common cause of calcium deficiencies.\r\n\r\nSo what’s the answer for the pet owner who’s on a mission to feed mindfully? Grocery shopping, cooking, and properly balancing a home cooked diet for your dog can feel like a full-time job (or a science project), but there are a few options for pet owners who want to feed their dog the very best home cooked food:\r\n\r\n1. Consult with a board-certified veterinary nutritionist about nutritionally appropriate recipes that are safe for long term feeding.\r\n\r\n2. Find a reputable company that can provide you with a <a href="http://thefarmersdog.com/diy" target="_blank" rel="noopener">specially formulated vitamin mix</a> and recipe that, together, will create a safe and balanced diet.\r\n\r\n3. Get balanced, home cooked meals made fresh for your dog and <a href="http://thefarmersdog.com" target="_blank" rel="noopener">delivered to your door</a>.\r\n\r\nKnow someone who manages to juggle life while being a chef for their dog? We’re sure their furry loved one is grateful! Just make sure they understand the importance of balancing that doggy diet, too.\r\n\r\n<em>Image: <a href="https://www.instagram.com/milletandlara/" target="_blank" rel="noopener">@milletandlara</a></em>', 'Cooking for Your Dog? Watch Out for These Nutrient Deficiencies', '', 'inherit', 'closed', 'closed', '', '354-revision-v1', '', '', '2018-04-09 14:15:13', '2018-04-09 14:15:13', '', 354, 'http://localhost/MADS-foodog/wordpress/index.php/2018/04/09/354-revision-v1/', 0, 'revision', '', 0),
+(356, 1, '2018-04-09 14:21:18', '2018-04-09 14:21:18', '', 'sardines-dog(1)', '', 'inherit', 'open', 'closed', '', 'sardines-dog1', '', '', '2018-04-09 14:21:18', '2018-04-09 14:21:18', '', 0, 'http://localhost/MADS-foodog/wordpress/wp-content/uploads/2018/04/sardines-dog1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(357, 1, '2018-04-09 14:21:23', '2018-04-09 14:21:23', '', 'cookin-dog(1)', '', 'inherit', 'open', 'closed', '', 'cookin-dog1', '', '', '2018-04-09 14:21:23', '2018-04-09 14:21:23', '', 0, 'http://localhost/MADS-foodog/wordpress/wp-content/uploads/2018/04/cookin-dog1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(358, 1, '2018-04-09 14:21:28', '2018-04-09 14:21:28', '', 'skinny-dog(1)', '', 'inherit', 'open', 'closed', '', 'skinny-dog1', '', '', '2018-04-09 14:21:28', '2018-04-09 14:21:28', '', 0, 'http://localhost/MADS-foodog/wordpress/wp-content/uploads/2018/04/skinny-dog1.jpg', 0, 'attachment', 'image/jpeg', 0),
+(359, 1, '2018-04-09 14:26:01', '2018-04-09 14:26:01', 'So you’ve discovered the many issues with <a href="http://digest.thefarmersdog.com/the-history-of-commercial-pet-food-a-great-american-marketing-story/" target="_blank" rel="noopener">commercial pet food</a> and have decided that a home cooked diet is <a href="http://digest.thefarmersdog.com/5-benefits-of-feeding-human-grade-dog-food/" target="_blank" rel="noopener">much healthier</a> for your dog. But do you know about the importance of properly balancing your dog’s home cooked meals?\n\n&nbsp;\n\nA plate of fresh vegetables, lean protein, and a smart starch may leave <i>you</i> feeling fueled, but there are different guidelines to follow when creating a complete meal for your pet. In other words, that bowl of chicken, spinach, and rice that you’re feeding your dog may actually be doing him more harm than good.\n\n&nbsp;\n\nDogs need a nuanced combination of vitamins and minerals to be truly nourished, and it’s extremely difficult for pet owners to come up with balanced recipes or create appropriate meals on their own that are safe for long-term feeding. In an effort to examine this conundrum, a <a href="https://www.ucdavis.edu/news/homemade-dog-food-recipes-can-be-risky-business-study-finds">UC Davis study</a> analyzed 200 recipes for dogs using sources like veterinary textbooks, pet care books, and websites. The study revealed that <b>95% of the recipes</b> they examined lacked at least one vital nutrient for dogs, and 83% percent had multiple nutrient deficiencies.\n\n&nbsp;\n\nEven home cooked meals supplemented with a multivitamin won’t sufficiently satisfy your dog’s dietary requirements or replicate how certain key ingredients work together to meet your dog’s nutritional needs.\n\n&nbsp;\n\nNot convinced? Let’s take a closer look at the most common nutrient deficiencies that can result from an imbalanced homemade diet.\n\n&nbsp;\n<h4>Zinc</h4>\n&nbsp;\n\nZinc has many essential functions in the body including protein synthesis, skin and wound healing, and stabilizing DNA/RNA structures and cell membranes. We told you it was essential. Although relatively non toxic, zinc can also interfere with the absorption of other minerals if consumed in large quantities, so as is the case with so much in life, balance is key.\n<h4>Choline</h4>\n&nbsp;\n\nCholine plays a wide ranging role in your dog’s nutrition and can have a direct impact on liver function. This macronutrient is a structural part of cell membranes and lipoproteins, which are essential for lipid/fat transfer throughout the body. Over time, choline deficiencies can affect normal liver function and lead to the accumulation of fat in the liver.\n<h4>Vitamins D &amp; E</h4>\n&nbsp;\n\nThere are two important forms of vitamin D: vitamin D2 (mainly found in plants) and vitamin D3 (which is found in fatty meats and liver). The primary function of vitamin D is to enhance intestinal absorption of calcium and phosphorus and maintain control of calcium homeostasis within the body.\n\nVitamin E is the major fat-soluble antioxidant present throughout the body and tissues and prevents oxidative damage to cell membranes and DNA/RNA structures. In other words, it’s pretty crucial. Research has shown that vitamin D deficiencies in dogs can lead to rickets and bone deformities, while vitamin E deficiencies manifest as degenerative muscle diseases associated with muscle weakness and reproductive failure. Don’t skimp on this duo.\n<h4>Copper</h4>\n&nbsp;\n\nCopper is a trace mineral and is incorporated in a variety of proteins and enzymes which perform essential functions for your dog. These include the formation and maintenance of bone and connective tissue, the formation of red blood cells, and normal nerve fiber formation. Side effects of a copper deficiency include connective tissue disorders and loss of hair pigmentation.\n\n&nbsp;\n<h4>Long-chain omega-3 fatty acids EPA &amp; DHA</h4>\n&nbsp;\n\nThese babies are a mouthful, but their purpose can be summarized in two words: brain function.  Long chain omega 3 fatty acids (typically found in cold water fish and algae) are important cell membrane components involved in cell signaling and are essential for normal function of the brain and retina.\n<h4>Calcium</h4>\n&nbsp;\n\nCalcium serves two major functions: it’s a structural component of bones and teeth and a cellular messenger involved in nerve impulse transmission. Low calcium levels in a dog’s blood — aka hypocalcemia — can become a serious condition resulting in spontaneous bone fractures and nerve damage. Diets containing mainly meat without additional calcium (hey chicken and rice, we’re looking at you) are a common cause of calcium deficiencies.\n\nSo what’s the answer for the pet owner who’s on a mission to feed mindfully? Grocery shopping, cooking, and properly balancing a home cooked diet for your dog can feel like a full-time job (or a science project), but there are a few options for pet owners who want to feed their dog the very best home cooked food:\n\n1. Consult with a board-certified veterinary nutritionist about nutritionally appropriate recipes that are safe for long term feeding.\n\n2. Find a reputable company that can provide you with a <a href="http://thefarmersdog.com/diy" target="_blank" rel="noopener">specially formulated vitamin mix</a> and recipe that, together, will create a safe and balanced diet.\n\n3. Get balanced, home cooked meals made fresh for your dog and <a href="http://thefarmersdog.com" target="_blank" rel="noopener">delivered to your door</a>.\n\nKnow someone who manages to juggle life while being a chef for their dog? We’re sure their furry loved one is grateful! Just make sure they understand the importance of balancing that doggy diet, too.\n\n<em>Image: <a href="https://www.instagram.com/milletandlara/" target="_blank" rel="noopener">@milletandlara</a></em>', 'Cooking for Your Dog? Watch Out for These Nutrient Deficiencies', '', 'inherit', 'closed', 'closed', '', '354-autosave-v1', '', '', '2018-04-09 14:26:01', '2018-04-09 14:26:01', '', 354, 'http://localhost/MADS-foodog/wordpress/index.php/2018/04/09/354-autosave-v1/', 0, 'revision', '', 0),
+(360, 1, '2018-04-09 14:26:08', '2018-04-09 14:26:08', 'So you’ve discovered the many issues with <a href="http://digest.thefarmersdog.com/the-history-of-commercial-pet-food-a-great-american-marketing-story/" target="_blank" rel="noopener">commercial pet food</a> and have decided that a home cooked diet is <a href="http://digest.thefarmersdog.com/5-benefits-of-feeding-human-grade-dog-food/" target="_blank" rel="noopener">much healthier</a> for your dog. But do you know about the importance of properly balancing your dog’s home cooked meals?\r\n\r\n&nbsp;\r\n\r\nA plate of fresh vegetables, lean protein, and a smart starch may leave <i>you</i> feeling fueled, but there are different guidelines to follow when creating a complete meal for your pet. In other words, that bowl of chicken, spinach, and rice that you’re feeding your dog may actually be doing him more harm than good.\r\n\r\n&nbsp;\r\n\r\nDogs need a nuanced combination of vitamins and minerals to be truly nourished, and it’s extremely difficult for pet owners to come up with balanced recipes or create appropriate meals on their own that are safe for long-term feeding. In an effort to examine this conundrum, a <a href="https://www.ucdavis.edu/news/homemade-dog-food-recipes-can-be-risky-business-study-finds">UC Davis study</a> analyzed 200 recipes for dogs using sources like veterinary textbooks, pet care books, and websites. The study revealed that <b>95% of the recipes</b> they examined lacked at least one vital nutrient for dogs, and 83% percent had multiple nutrient deficiencies.\r\n\r\n&nbsp;\r\n\r\nEven home cooked meals supplemented with a multivitamin won’t sufficiently satisfy your dog’s dietary requirements or replicate how certain key ingredients work together to meet your dog’s nutritional needs.\r\n\r\n&nbsp;\r\n\r\nNot convinced? Let’s take a closer look at the most common nutrient deficiencies that can result from an imbalanced homemade diet.\r\n\r\n&nbsp;\r\n<h4>Zinc</h4>\r\n&nbsp;\r\n\r\nZinc has many essential functions in the body including protein synthesis, skin and wound healing, and stabilizing DNA/RNA structures and cell membranes. We told you it was essential. Although relatively non toxic, zinc can also interfere with the absorption of other minerals if consumed in large quantities, so as is the case with so much in life, balance is key.\r\n<h4>Choline</h4>\r\n&nbsp;\r\n\r\nCholine plays a wide ranging role in your dog’s nutrition and can have a direct impact on liver function. This macronutrient is a structural part of cell membranes and lipoproteins, which are essential for lipid/fat transfer throughout the body. Over time, choline deficiencies can affect normal liver function and lead to the accumulation of fat in the liver.\r\n<h4>Vitamins D &amp; E</h4>\r\n&nbsp;\r\n\r\nThere are two important forms of vitamin D: vitamin D2 (mainly found in plants) and vitamin D3 (which is found in fatty meats and liver). The primary function of vitamin D is to enhance intestinal absorption of calcium and phosphorus and maintain control of calcium homeostasis within the body.\r\n\r\n&nbsp;\r\n\r\nVitamin E is the major fat-soluble antioxidant present throughout the body and tissues and prevents oxidative damage to cell membranes and DNA/RNA structures. In other words, it’s pretty crucial. Research has shown that vitamin D deficiencies in dogs can lead to rickets and bone deformities, while vitamin E deficiencies manifest as degenerative muscle diseases associated with muscle weakness and reproductive failure. Don’t skimp on this duo.\r\n<h4>Copper</h4>\r\n&nbsp;\r\n\r\nCopper is a trace mineral and is incorporated in a variety of proteins and enzymes which perform essential functions for your dog. These include the formation and maintenance of bone and connective tissue, the formation of red blood cells, and normal nerve fiber formation. Side effects of a copper deficiency include connective tissue disorders and loss of hair pigmentation.\r\n\r\n&nbsp;\r\n<h4>Long-chain omega-3 fatty acids EPA &amp; DHA</h4>\r\n&nbsp;\r\n\r\nThese babies are a mouthful, but their purpose can be summarized in two words: brain function.  Long chain omega 3 fatty acids (typically found in cold water fish and algae) are important cell membrane components involved in cell signaling and are essential for normal function of the brain and retina.\r\n\r\n&nbsp;\r\n<h4>Calcium</h4>\r\n&nbsp;\r\n\r\nCalcium serves two major functions: it’s a structural component of bones and teeth and a cellular messenger involved in nerve impulse transmission. Low calcium levels in a dog’s blood — aka hypocalcemia — can become a serious condition resulting in spontaneous bone fractures and nerve damage. Diets containing mainly meat without additional calcium (hey chicken and rice, we’re looking at you) are a common cause of calcium deficiencies.\r\n\r\nSo what’s the answer for the pet owner who’s on a mission to feed mindfully? Grocery shopping, cooking, and properly balancing a home cooked diet for your dog can feel like a full-time job (or a science project), but there are a few options for pet owners who want to feed their dog the very best home cooked food:\r\n\r\n1. Consult with a board-certified veterinary nutritionist about nutritionally appropriate recipes that are safe for long term feeding.\r\n\r\n2. Find a reputable company that can provide you with a <a href="http://thefarmersdog.com/diy" target="_blank" rel="noopener">specially formulated vitamin mix</a> and recipe that, together, will create a safe and balanced diet.\r\n\r\n3. Get balanced, home cooked meals made fresh for your dog and <a href="http://thefarmersdog.com" target="_blank" rel="noopener">delivered to your door</a>.\r\n\r\nKnow someone who manages to juggle life while being a chef for their dog? We’re sure their furry loved one is grateful! Just make sure they understand the importance of balancing that doggy diet, too.\r\n\r\n<em>Image: <a href="https://www.instagram.com/milletandlara/" target="_blank" rel="noopener">@milletandlara</a></em>', 'Cooking for Your Dog? Watch Out for These Nutrient Deficiencies', '', 'inherit', 'closed', 'closed', '', '354-revision-v1', '', '', '2018-04-09 14:26:08', '2018-04-09 14:26:08', '', 354, 'http://localhost/MADS-foodog/wordpress/index.php/2018/04/09/354-revision-v1/', 0, 'revision', '', 0),
+(361, 1, '2018-04-09 14:28:18', '2018-04-09 14:28:18', 'I usually associate sardines with Garfield cartoons, but I have major news: That can of sardines that’s been hiding in your cupboard for months is actually amazing for your dog.\r\n\r\n&nbsp;\r\n\r\nSardines are loaded with nutrients like omega-3s, vitamins D and B12, amino acids (the stuff that makes up protein), and coenzyme Q10. You already know that dogs <a href="http://digest.thefarmersdog.com/5-benefits-of-feeding-human-grade-dog-food/" target="_blank" rel="noopener">can benefit</a> from many healthy, human grade foods we put in our diets, and sardines are no different. Simply adding a few sardines to your dog’s regular meals once a week can help develop muscles and other connective tissue, boost his immune system, increase dental health, and protect against kidney disease. They’ll also keep him looking dapper, as omega-3s help fur stay nice and soft. Small fish, big benefits.\r\n\r\n&nbsp;\r\n\r\nWhat sets sardines apart from other fish? These babies are small, which means they have less mercury content than other fish, diminishing the risk of poisoning. Sardines are also soft-boned, so you can usually feed them to your pup whole, which makes for added convenience. Just pop the can (as long as it’s salt-free and packed with water or a natural oil like <a href="http://digest.thefarmersdog.com/beauty-and-brains-the-benefits-of-coconut-oil-for-dogs/" target="_blank" rel="noopener">coconut</a>, olive, etc.) and add a couple to your dog’s bowl. A few sardines a week (one for smaller dogs and two a day for bigger breeds) is plenty. If you happen to have fresh sardines lying around, good for you! Just watch those bones, as your dog will have a hard time chewing and digesting them.\r\n\r\n&nbsp;\r\n\r\nHave you ever given your dog sardines? Tell us how it went in the comments section below!\r\n\r\n&nbsp;\r\n\r\n<em>Image: <a href="https://food52.com/shop/products/870-portuguese-sardines-in-spring-water" target="_blank" rel="noopener">Food52</a></em>', 'Why You Should Be Feeding Your Dog Sardines', '', 'publish', 'open', 'open', '', 'why-you-should-be-feeding-your-dog-sardines', '', '', '2018-04-09 14:28:18', '2018-04-09 14:28:18', '', 0, 'http://localhost/MADS-foodog/wordpress/?p=361', 0, 'post', '', 0);
+INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
+(362, 1, '2018-04-09 14:28:18', '2018-04-09 14:28:18', 'I usually associate sardines with Garfield cartoons, but I have major news: That can of sardines that’s been hiding in your cupboard for months is actually amazing for your dog.\r\n\r\n&nbsp;\r\n\r\nSardines are loaded with nutrients like omega-3s, vitamins D and B12, amino acids (the stuff that makes up protein), and coenzyme Q10. You already know that dogs <a href="http://digest.thefarmersdog.com/5-benefits-of-feeding-human-grade-dog-food/" target="_blank" rel="noopener">can benefit</a> from many healthy, human grade foods we put in our diets, and sardines are no different. Simply adding a few sardines to your dog’s regular meals once a week can help develop muscles and other connective tissue, boost his immune system, increase dental health, and protect against kidney disease. They’ll also keep him looking dapper, as omega-3s help fur stay nice and soft. Small fish, big benefits.\r\n\r\n&nbsp;\r\n\r\nWhat sets sardines apart from other fish? These babies are small, which means they have less mercury content than other fish, diminishing the risk of poisoning. Sardines are also soft-boned, so you can usually feed them to your pup whole, which makes for added convenience. Just pop the can (as long as it’s salt-free and packed with water or a natural oil like <a href="http://digest.thefarmersdog.com/beauty-and-brains-the-benefits-of-coconut-oil-for-dogs/" target="_blank" rel="noopener">coconut</a>, olive, etc.) and add a couple to your dog’s bowl. A few sardines a week (one for smaller dogs and two a day for bigger breeds) is plenty. If you happen to have fresh sardines lying around, good for you! Just watch those bones, as your dog will have a hard time chewing and digesting them.\r\n\r\n&nbsp;\r\n\r\nHave you ever given your dog sardines? Tell us how it went in the comments section below!\r\n\r\n&nbsp;\r\n\r\n<em>Image: <a href="https://food52.com/shop/products/870-portuguese-sardines-in-spring-water" target="_blank" rel="noopener">Food52</a></em>', 'Why You Should Be Feeding Your Dog Sardines', '', 'inherit', 'closed', 'closed', '', '361-revision-v1', '', '', '2018-04-09 14:28:18', '2018-04-09 14:28:18', '', 361, 'http://localhost/MADS-foodog/wordpress/index.php/2018/04/09/361-revision-v1/', 0, 'revision', '', 0),
+(363, 1, '2018-04-09 14:30:30', '2018-04-09 14:30:30', 'We know you love every inch of your dog’s body just the way it is, but pudge can become a real problem over time. Like humans, dogs are at greater risk of disease when they are obese, and research shows that an overweight dog’s average lifespan is 10 months shorter than its underweight or healthy counterpart. An obese dog’s quality of life will also diminish greatly in those final years. In other words, skinny dogs just live longer.\r\n\r\n&nbsp;\r\n\r\nBelow, we offer a refresher course on some of the health risks associated with canine obesity, as well as tips for keeping your dog trim. To learn about the benefits of a fresh food diet for your dog, <a href="https://thefarmersdog.com" target="_blank" rel="noopener">check out our meal plans</a>.\r\n\r\n&nbsp;\r\n\r\n<strong>Osteoarthritis</strong>\r\n\r\n&nbsp;\r\n\r\nEven in a healthy dog, this degenerative joint disease can begin to take its toll as your pet gets older. In simple terms, osteoarthritis is instability in the bones and joints that causes them to rub together unnaturally, creating inflammation. The bones will initially rub against joint cartilage, but eventually that cartilage erodes and leaves nothing to protect the bones from rubbing against each other. It’s incredibly painful and will present first as a limp and eventually as an inability to even move around. The risk for this disease is much higher in overweight dogs, as their joints are only designed to support so much weight.\r\n\r\n&nbsp;\r\n\r\n<strong>High blood pressure and heart disease</strong>\r\n\r\n&nbsp;\r\n\r\nThe heart is an incredibly sophisticated organ. It grows proportionately within the body it serves and its function is to pump blood through that body to keep it alive. But what happens when its body becomes unnaturally large? The heart increases its workload to keep up with demand, but it can only handle so much strain. Eventually, it gets overworked, leading to high blood pressure, which can cause congestive heart failure. This, in turn, can lead to a number of painful respiratory and gastrointestinal problems.\r\n\r\n&nbsp;\r\n\r\n<strong>IVDD (Intervertebral Disc Disease)</strong>\r\n\r\n&nbsp;\r\n\r\nAs with osteoarthritis, IVDD is a degenerative disease whose likelihood increases in overweight dogs. The intervertebral disc is the piece of cartilage that sits between each spinal vertebra, acting as a sort of shock absorber for the spine. Thus, long-backed breeds such as dachshunds and corgis are particularly susceptible to IVDD. Having said that, the strain put on the spine of an obese dog can become too great to bear whether long-backed or not. This will cause the discs to slip out of place, resulting in severe back pain and, in some cases, rear limb paralysis.\r\n\r\n&nbsp;\r\n\r\n<strong>Sugar Diabetes (Diabetes Mellitus)</strong>\r\n\r\n&nbsp;\r\n\r\nWhen you eat, your body turns food into glucose (sugar), which your cells consume for energy. Meanwhile, the pancreas produces insulin, a hormone that acts as a kind of key to open cells up and allow for the entry of that glucose. In cases of <em>diabetes mellitus</em>, the cells build up a resistance to that insulin, rendering the “key” ineffective. Overeating plays a big role in creating that resistance. When cells recognize an abundance of nutrients flowing through the blood, they become overwhelmed by the responsibility to consume everything. Rather than taking on more than they can handle, the cells tell their insulin receptors to act like a bouncer at a crowded party and just stop letting anything in. Though diabetes can be managed, there is no cure, and your dog will require regular treatments to battle the host of painful symptoms caused by this disease.\r\n\r\n&nbsp;\r\n\r\n<strong>So, what can you do to prevent obesity in your dog?</strong>\r\n\r\n&nbsp;\r\n\r\nFortunately, this part is the simplest. The key factors in obesity are a poor diet and overeating, as well as a lack of exercise. As a pet parent, these are all well within in your control. A nutritionally balanced diet served in appropriately sized portions is the first step to keeping your dog at a healthy weight. Fresh, homemade food can help keep weight at bay as well, and some companies will even send <a href="http://thefarmersdog.com" target="_blank" rel="noopener">pre-portioned meals</a> to your door based on your dog’s ideal caloric needs.\r\n\r\n&nbsp;\r\n\r\nIf you still start to see your pup getting a little soft around the midsection, you might not be moving enough, either! Try incorporating <a href="http://digest.thefarmersdog.com/10-tips-for-getting-active-with-your-dog-this-spring/" target="_blank" rel="noopener">more activity</a> into your lifestyles. Trust us, you’ll both feel (and look) healthier.\r\n\r\n&nbsp;\r\n\r\n<strong>Get 50% Off Your Trial of Fresh, Vet-Developed, Home-Delivered Dog Food</strong>\r\n\r\n&nbsp;\r\n\r\n<span class="mb-center maxbutton-1-center"><span class="maxbutton-1-container mb-container"><a class="maxbutton-1 maxbutton maxbutton-try-two-weeks" title="Get 50% Off Your Trial" href="https://thefarmersdog.com/p/ad50" target="_blank" rel="noopener"><span class="mb-text">TRY TWO WEEKS</span></a></span></span>\r\n\r\n&nbsp;\r\n\r\n<em>Image: <a href="http://instagram.com/freyaeverafter_" target="_blank" rel="noopener">@freyaeverafter_</a></em>', 'Why Skinny Dogs Live Longer', '', 'publish', 'open', 'open', '', 'why-skinny-dogs-live-longer', '', '', '2018-04-09 14:31:43', '2018-04-09 14:31:43', '', 0, 'http://localhost/MADS-foodog/wordpress/?p=363', 0, 'post', '', 0),
+(364, 1, '2018-04-09 14:30:30', '2018-04-09 14:30:30', 'We know you love every inch of your dog’s body just the way it is, but pudge can become a real problem over time. Like humans, dogs are at greater risk of disease when they are obese, and research shows that an overweight dog’s average lifespan is 10 months shorter than its underweight or healthy counterpart. An obese dog’s quality of life will also diminish greatly in those final years. In other words, skinny dogs just live longer.\r\n\r\n&nbsp;\r\n\r\nBelow, we offer a refresher course on some of the health risks associated with canine obesity, as well as tips for keeping your dog trim. To learn about the benefits of a fresh food diet for your dog, <a href="https://thefarmersdog.com" target="_blank" rel="noopener">check out our meal plans</a>.\r\n\r\n&nbsp;\r\n\r\n<strong>Osteoarthritis</strong>\r\n\r\n&nbsp;\r\n\r\nEven in a healthy dog, this degenerative joint disease can begin to take its toll as your pet gets older. In simple terms, osteoarthritis is instability in the bones and joints that causes them to rub together unnaturally, creating inflammation. The bones will initially rub against joint cartilage, but eventually that cartilage erodes and leaves nothing to protect the bones from rubbing against each other. It’s incredibly painful and will present first as a limp and eventually as an inability to even move around. The risk for this disease is much higher in overweight dogs, as their joints are only designed to support so much weight.\r\n\r\n&nbsp;\r\n\r\n<strong>High blood pressure and heart disease</strong>\r\n\r\n&nbsp;\r\n\r\nThe heart is an incredibly sophisticated organ. It grows proportionately within the body it serves and its function is to pump blood through that body to keep it alive. But what happens when its body becomes unnaturally large? The heart increases its workload to keep up with demand, but it can only handle so much strain. Eventually, it gets overworked, leading to high blood pressure, which can cause congestive heart failure. This, in turn, can lead to a number of painful respiratory and gastrointestinal problems.\r\n\r\n&nbsp;\r\n\r\n<strong>IVDD (Intervertebral Disc Disease)</strong>\r\n\r\n&nbsp;\r\n\r\nAs with osteoarthritis, IVDD is a degenerative disease whose likelihood increases in overweight dogs. The intervertebral disc is the piece of cartilage that sits between each spinal vertebra, acting as a sort of shock absorber for the spine. Thus, long-backed breeds such as dachshunds and corgis are particularly susceptible to IVDD. Having said that, the strain put on the spine of an obese dog can become too great to bear whether long-backed or not. This will cause the discs to slip out of place, resulting in severe back pain and, in some cases, rear limb paralysis.\r\n\r\n&nbsp;\r\n\r\n<strong>Sugar Diabetes (Diabetes Mellitus)</strong>\r\n\r\n&nbsp;\r\n\r\nWhen you eat, your body turns food into glucose (sugar), which your cells consume for energy. Meanwhile, the pancreas produces insulin, a hormone that acts as a kind of key to open cells up and allow for the entry of that glucose. In cases of <em>diabetes mellitus</em>, the cells build up a resistance to that insulin, rendering the “key” ineffective. Overeating plays a big role in creating that resistance. When cells recognize an abundance of nutrients flowing through the blood, they become overwhelmed by the responsibility to consume everything. Rather than taking on more than they can handle, the cells tell their insulin receptors to act like a bouncer at a crowded party and just stop letting anything in. Though diabetes can be managed, there is no cure, and your dog will require regular treatments to battle the host of painful symptoms caused by this disease.\r\n\r\n&nbsp;\r\n\r\n<strong>So, what can you do to prevent obesity in your dog?</strong>\r\n\r\n&nbsp;\r\n\r\nFortunately, this part is the simplest. The key factors in obesity are a poor diet and overeating, as well as a lack of exercise. As a pet parent, these are all well within in your control. A nutritionally balanced diet served in appropriately sized portions is the first step to keeping your dog at a healthy weight. Fresh, homemade food can help keep weight at bay as well, and some companies will even send <a href="http://thefarmersdog.com" target="_blank" rel="noopener">pre-portioned meals</a> to your door based on your dog’s ideal caloric needs.\r\n\r\n&nbsp;\r\n\r\nIf you still start to see your pup getting a little soft around the midsection, you might not be moving enough, either! Try incorporating <a href="http://digest.thefarmersdog.com/10-tips-for-getting-active-with-your-dog-this-spring/" target="_blank" rel="noopener">more activity</a> into your lifestyles. Trust us, you’ll both feel (and look) healthier.\r\n\r\n&nbsp;\r\n\r\n<strong>Get 50% Off Your Trial of Fresh, Vet-Developed, Home-Delivered Dog Food</strong>\r\n\r\n&nbsp;\r\n\r\n<span class="mb-center maxbutton-1-center"><span class="maxbutton-1-container mb-container"><a class="maxbutton-1 maxbutton maxbutton-try-two-weeks" title="Get 50% Off Your Trial" href="https://thefarmersdog.com/p/ad50" target="_blank" rel="noopener"><span class="mb-text">TRY TWO WEEKS</span></a></span></span>\r\n\r\n&nbsp;\r\n\r\n\r\n<em>Image: <a href="http://instagram.com/freyaeverafter_" target="_blank" rel="noopener">@freyaeverafter_</a></em>', 'Why Skinny Dogs Live Longer', '', 'inherit', 'closed', 'closed', '', '363-revision-v1', '', '', '2018-04-09 14:30:30', '2018-04-09 14:30:30', '', 363, 'http://localhost/MADS-foodog/wordpress/index.php/2018/04/09/363-revision-v1/', 0, 'revision', '', 0);
 
 -- --------------------------------------------------------
 
@@ -1164,7 +1853,17 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 (210, 40, 0),
 (212, 6, 0),
 (212, 39, 0),
-(212, 41, 0);
+(212, 41, 0),
+(354, 6, 0),
+(354, 42, 0),
+(361, 3, 0),
+(361, 42, 0),
+(361, 43, 0),
+(361, 44, 0),
+(363, 4, 0),
+(363, 42, 0),
+(363, 45, 0),
+(363, 46, 0);
 
 -- --------------------------------------------------------
 
@@ -1188,10 +1887,10 @@ CREATE TABLE `wp_term_taxonomy` (
 INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
 (1, 1, 'category', '', 0, 1),
 (2, 2, 'nav_menu', '', 0, 4),
-(3, 3, 'category', '', 0, 14),
-(4, 4, 'category', '', 0, 16),
+(3, 3, 'category', '', 0, 15),
+(4, 4, 'category', '', 0, 17),
 (5, 5, 'category', '', 0, 15),
-(6, 6, 'category', '', 0, 16),
+(6, 6, 'category', '', 0, 17),
 (7, 7, 'post_tag', '', 0, 1),
 (8, 8, 'post_tag', '', 0, 4),
 (9, 9, 'post_tag', '', 0, 4),
@@ -1226,7 +1925,90 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 (38, 38, 'post_tag', '', 0, 1),
 (39, 39, 'post_tag', '', 0, 2),
 (40, 40, 'post_tag', '', 0, 1),
-(41, 41, 'post_tag', '', 0, 1);
+(41, 41, 'post_tag', '', 0, 1),
+(42, 42, 'category', '', 0, 3),
+(43, 43, 'post_tag', '', 0, 1),
+(44, 44, 'post_tag', '', 0, 1),
+(45, 45, 'post_tag', '', 0, 1),
+(46, 46, 'post_tag', '', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wp_termmeta`
+--
+
+CREATE TABLE `wp_termmeta` (
+  `meta_id` bigint(20) UNSIGNED NOT NULL,
+  `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wp_terms`
+--
+
+CREATE TABLE `wp_terms` (
+  `term_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `slug` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `term_group` bigint(10) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Dumping data for table `wp_terms`
+--
+
+INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
+(1, 'Uncategorized', 'uncategorized', 0),
+(2, 'Categorie', 'categorie', 0),
+(3, 'Nutrition', 'nutrition', 0),
+(4, 'Wellness', 'wellness', 0),
+(5, 'Lifestyle', 'lifestyle', 0),
+(6, 'Community', 'community', 0),
+(7, 'lorem', 'lorem', 0),
+(8, 'lethargic', 'lethargic', 0),
+(9, 'Halloween', 'halloween', 0),
+(10, 'Healthy', 'healthy', 0),
+(11, 'Constipation', 'constipation', 0),
+(12, 'Therapy', 'therapy', 0),
+(13, 'Working hard', 'working-hard', 0),
+(14, 'Family', 'family', 0),
+(15, 'Running away', 'running-away', 0),
+(16, 'tricks', 'tricks', 0),
+(17, 'dog', 'dog', 0),
+(18, 'food', 'food', 0),
+(19, 'pumpkins for dogs', 'pumpkins-for-dogs', 0),
+(20, 'parsley', 'parsley', 0),
+(21, 'Probiotics', 'probiotics', 0),
+(22, 'Mint for Dogs', 'mint-for-dogs', 0),
+(23, 'sage for dogs', 'sage-for-dogs', 0),
+(24, 'olive oil for dogs', 'olive-oil-for-dogs', 0),
+(25, 'pumpkin seeds for dogs', 'pumpkin-seeds-for-dogs', 0),
+(26, 'Apple Cider Vinegar for Dogs', 'apple-cider-vinegar-for-dogs', 0),
+(27, 'Table Scraps for Dogs', 'table-scraps-for-dogs', 0),
+(28, 'Parsley for Dogs', 'parsley-for-dogs', 0),
+(29, 'Arielle Charnas', 'arielle-charnas', 0),
+(30, 'allergies', 'allergies', 0),
+(31, 'vets', 'vets', 0),
+(32, 'Dr. Katy', 'dr-katy', 0),
+(33, 'Lauren Hayes', 'lauren-hayes', 0),
+(34, 'vitamin', 'vitamin', 0),
+(35, 'fashion', 'fashion', 0),
+(36, 'blogger', 'blogger', 0),
+(37, 'shelter dogs', 'shelter-dogs', 0),
+(38, 'dOGUMENTA', 'dogumenta', 0),
+(39, 'hurricane harvey', 'hurricane-harvey', 0),
+(40, 'homeless dogs', 'homeless-dogs', 0),
+(41, 'irma', 'irma', 0),
+(42, 'Featured', 'featured', 0),
+(43, 'sardine', 'sardine', 0),
+(44, 'garfield', 'garfield', 0),
+(45, 'skinny', 'skinny', 0),
+(46, 'longer', 'longer', 0);
 
 -- --------------------------------------------------------
 
@@ -1356,6 +2138,21 @@ ALTER TABLE `wp_posts`
   ADD KEY `post_author` (`post_author`);
 
 --
+-- Indexes for table `wp_term_relationships`
+--
+ALTER TABLE `wp_term_relationships`
+  ADD PRIMARY KEY (`object_id`,`term_taxonomy_id`),
+  ADD KEY `term_taxonomy_id` (`term_taxonomy_id`);
+
+--
+-- Indexes for table `wp_term_taxonomy`
+--
+ALTER TABLE `wp_term_taxonomy`
+  ADD PRIMARY KEY (`term_taxonomy_id`),
+  ADD UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
+  ADD KEY `taxonomy` (`taxonomy`);
+
+--
 -- Indexes for table `wp_termmeta`
 --
 ALTER TABLE `wp_termmeta`
@@ -1370,21 +2167,6 @@ ALTER TABLE `wp_terms`
   ADD PRIMARY KEY (`term_id`),
   ADD KEY `slug` (`slug`(191)),
   ADD KEY `name` (`name`(191));
-
---
--- Indexes for table `wp_term_relationships`
---
-ALTER TABLE `wp_term_relationships`
-  ADD PRIMARY KEY (`object_id`,`term_taxonomy_id`),
-  ADD KEY `term_taxonomy_id` (`term_taxonomy_id`);
-
---
--- Indexes for table `wp_term_taxonomy`
---
-ALTER TABLE `wp_term_taxonomy`
-  ADD PRIMARY KEY (`term_taxonomy_id`),
-  ADD UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
-  ADD KEY `taxonomy` (`taxonomy`);
 
 --
 -- Indexes for table `wp_usermeta`
@@ -1426,17 +2208,22 @@ ALTER TABLE `wp_links`
 -- AUTO_INCREMENT for table `wp_options`
 --
 ALTER TABLE `wp_options`
-  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=569;
+  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=579;
 --
 -- AUTO_INCREMENT for table `wp_postmeta`
 --
 ALTER TABLE `wp_postmeta`
-  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=705;
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=733;
 --
 -- AUTO_INCREMENT for table `wp_posts`
 --
 ALTER TABLE `wp_posts`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=353;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=365;
+--
+-- AUTO_INCREMENT for table `wp_term_taxonomy`
+--
+ALTER TABLE `wp_term_taxonomy`
+  MODIFY `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT for table `wp_termmeta`
 --
@@ -1446,12 +2233,7 @@ ALTER TABLE `wp_termmeta`
 -- AUTO_INCREMENT for table `wp_terms`
 --
 ALTER TABLE `wp_terms`
-  MODIFY `term_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
---
--- AUTO_INCREMENT for table `wp_term_taxonomy`
---
-ALTER TABLE `wp_term_taxonomy`
-  MODIFY `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `term_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT for table `wp_usermeta`
 --
