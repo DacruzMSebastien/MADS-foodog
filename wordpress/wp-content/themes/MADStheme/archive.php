@@ -1,6 +1,6 @@
             <?php get_header(); ?>
             <!-- ouvrir header,php -->
-            <div id="content">
+            <div id="content-archive">
                 <?php if(have_posts()) : ?>
                 <?php while(have_posts()) : the_post(); ?>
 
