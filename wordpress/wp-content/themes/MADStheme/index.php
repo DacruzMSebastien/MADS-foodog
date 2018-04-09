@@ -4,13 +4,11 @@
             <!-- CONTENT -->
             <div id="content">
                 <?php require "featured.php"; ?>
-                
-               
-
             </div>
+            <?php 
+   pagination($wp_query);
+?>
         </div>
-        <!-- SIDEBAR -->
-        <?php //get_sidebar(); ?>
         <!-- FOOTER -->
         <?php get_footer(); ?>
     </body>

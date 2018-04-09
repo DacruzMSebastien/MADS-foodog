@@ -1,0 +1,41 @@
+#content {
+    //background-color: red;
+    width: 100%;
+    #article {
+        width: 50%;
+        padding-left: 15%;
+        padding-bottom: 15px;
+        .post {
+            //background-color: yellow;
+            padding-left: 5px;
+            padding-bottom: 5px;
+            padding-top: 10px;
+            a {
+                //background-color: rosybrown;
+                color: $font-color-bold;
+                margin-left: 5px;
+            }
+            #archive_picture {
+                //background-color:white;
+                width: 40%;
+                height: 200px;
+            }
+        .archive_title {
+            @include article-title;
+            //background-color: purple;
+            margin-left: 35%;
+            transform: translateY(-150px);
+            font-size: 22px;
+            }
+        }
+        .post_content {
+            //background-color: blue;
+            width: 60%;
+            height: 50%;
+            margin-left: 35%;
+            padding-top: 10px;
+            transform: translateY(-120px);
+        }
+    }   
+}
+    

@@ -1,4 +1,8 @@
+        
+<!-- PAGE INUTILISEE -->
+
         <!-- AFFICHAGE DES PAGES ( PAS ARTICLE ! ) -->
+        
 
             <?php get_header(); ?>
 
@@ -27,6 +31,7 @@
                 <?php endif; ?>
             </div>
         </div>
+        
         <?php get_sidebar(); ?>
         <?php get_footer(); ?>
     </body>
