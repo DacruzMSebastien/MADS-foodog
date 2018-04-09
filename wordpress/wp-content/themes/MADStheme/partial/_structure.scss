@@ -13,10 +13,9 @@ h1 {
 
 a {
     text-decoration: none;
-    // color: $debug-color;
 }
 
-h3 {
+h3 { // For .category
     @include h-center (100%, left);
 }
 
