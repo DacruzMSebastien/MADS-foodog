@@ -35,3 +35,9 @@ h5 { //subtitle for article
     padding-bottom: 5px;
 }
 
+.category {
+    a {
+        @include category;
+    }
+}
+

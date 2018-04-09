@@ -13,6 +13,11 @@
                     </a>
                 </h2>
                 <div class="post-content">
+                    <p>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php the_post_thumbnail(); ?>
+                        </a>
+                    </p>
                     <?php the_content(); ?>
                     <div class="comments-template">
                         <?php comments_template(); ?>
