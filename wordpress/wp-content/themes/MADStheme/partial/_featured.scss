@@ -1,0 +1,19 @@
+.featured-post {
+    .title {
+        padding-bottom: 40px;
+    }
+    @include h-center(60%, left);
+    .article-title{
+        
+        a{
+            text-decoration: none;
+            @include article-title;
+            font-size: 100%;
+        }
+    }
+    .category {
+        a {
+            font-size: 70%;
+        }
+    }
+}

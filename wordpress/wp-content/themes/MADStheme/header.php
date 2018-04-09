@@ -43,7 +43,7 @@
                 <?php bloginfo('name'); ?>
                     
                 </h1>
-                <?php wp_nav_menu('Categorie'); ?>
+                <?php wp_nav_menu(); ?>
                     
             </div>
             <div id="barre">
