@@ -299,20 +299,20 @@ ul li {
 #footer #footerInfo {
   background-color: #3D4045;
   width: 100%;
+  padding: 2%;
 }
 
 #footer #footerInfo #footerAlign {
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 10%;
+  margin-right: 10%;
   display: grid;
-  grid-template-columns: 30%, 30%, 30%;
-  grid-template-rows: 25%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
 }
 
 #footer #footerInfo #footerAlign #footerCat {
   grid-column: 1;
-  margin-right: 60%;
-  width: 100%;
+  width: auto;
 }
 
 #footer #footerInfo #footerAlign #footerCat .menu-categorie2-container ul {
@@ -321,29 +321,27 @@ ul li {
 
 #footer #footerInfo #footerAlign #footerCat .menu-categorie2-container ul li {
   display: block;
-  padding: 2%;
+  padding: 5%;
   border-bottom: 1px solid #636363;
 }
 
 #footer #footerInfo #footerAlign #footerCat .menu-categorie2-container ul li a {
   color: white;
-  font-size: 50%;
+  font-size: 70%;
 }
 
 #footer #footerInfo #footerAlign #footerPop {
   grid-column: 2;
-  margin-left: 10%;
-  margin-right: 20%;
   width: auto;
 }
 
 #footer #footerInfo #footerAlign #footerPop ul li {
-  padding: 2%;
+  padding: 6%;
 }
 
 #footer #footerInfo #footerAlign #footerPop ul li a {
   color: white;
-  font-size: 50%;
+  font-size: 70%;
 }
 
 #footer #footerInfo #footerAlign #footerInst {
@@ -353,90 +351,91 @@ ul li {
 
 #footer #footerInfo #footerAlign #footerInst #listInst {
   display: grid;
-  grid-template-columns: 30%, 30%, 30%;
-  grid-template-rows: 30%, 30%, 30%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding-top: 3%;
 }
 
 #footer #footerInfo #footerAlign #footerInst #listInst #inst1 {
   grid-column: 1;
   grid-row: 1;
-  width: 100%;
-  padding: 2px;
+  padding: 3%;
 }
 
 #footer #footerInfo #footerAlign #footerInst #listInst #inst2 {
   grid-column: 2;
   grid-row: 1;
-  width: 100%;
-  padding: 2px;
+  padding: 3%;
 }
 
 #footer #footerInfo #footerAlign #footerInst #listInst #inst3 {
   grid-column: 3;
   grid-row: 1;
-  width: 100%;
-  padding: 2px;
+  padding: 3%;
 }
 
 #footer #footerInfo #footerAlign #footerInst #listInst #inst4 {
   grid-column: 1;
   grid-row: 2;
-  width: 100%;
-  padding: 2px;
+  padding: 3%;
 }
 
 #footer #footerInfo #footerAlign #footerInst #listInst #inst5 {
   grid-column: 2;
   grid-row: 2;
-  width: 100%;
-  padding: 2px;
+  padding: 3%;
 }
 
 #footer #footerInfo #footerAlign #footerInst #listInst #inst6 {
   grid-column: 3;
   grid-row: 2;
-  width: 100%;
-  padding: 2px;
+  padding: 3%;
 }
 
 #footer #footerInfo #footerAlign #footerInst #listInst #inst7 {
   grid-column: 1;
   grid-row: 3;
-  width: 100%;
-  padding: 2px;
+  padding: 3%;
 }
 
 #footer #footerInfo #footerAlign #footerInst #listInst #inst8 {
   grid-column: 2;
   grid-row: 3;
-  width: 100%;
-  padding: 2px;
+  padding: 3%;
 }
 
 #footer #footerInfo #footerAlign #footerInst #listInst #inst9 {
   grid-column: 3;
   grid-row: 3;
-  width: 100%;
-  padding: 2px;
+  padding: 3%;
 }
 
 #footer #footerEnd {
   background-color: #333639;
 }
 
-#footer #footerEnd ul {
-  text-align: right;
+#footer #footerEnd #footerEndAlign {
+  margin-right: 10%;
+  margin-left: 10%;
 }
 
-#footer #footerEnd ul li {
+#footer #footerEnd #footerEndAlign ul {
+  text-align: right;
+  padding: 2%;
+  margin-right: 1%;
+}
+
+#footer #footerEnd #footerEndAlign ul li {
   display: inline;
 }
 
 .footerTitle {
   margin-left: 8%;
-  font-size: 60%;
-  width: 50%;
-  padding: 5%;
+  font-size: 70%;
+}
+
+img {
+  max-width: 100%;
 }
 
 #search_form_submit {
