@@ -27,6 +27,7 @@
             <?php endwhile; ?>
             <?php previous_post_link() ?>
             <?php next_post_link() ?>
+            
             <?php else : ?>
                 <p>Désolé, aucun article ne correspond à vos critères.</p>
             <?php endif; ?>

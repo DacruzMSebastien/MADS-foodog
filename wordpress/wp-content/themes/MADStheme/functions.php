@@ -69,7 +69,7 @@ if( !function_exists( 'theme_pagination' ) ) {
 		'current' => $current,
 	        'show_all' => false,
 	        'end_size'     => 1,
-	        'mid_size'     => 2,
+	        'mid_size'     => 4,
 		'type' => 'list',
 		'next_text' => '»',
 		'prev_text' => '«'
@@ -84,6 +84,7 @@ if( !function_exists( 'theme_pagination' ) ) {
 	echo str_replace('page/1/','', paginate_links( $pagination ) );
     }
 }
+
 
 
 

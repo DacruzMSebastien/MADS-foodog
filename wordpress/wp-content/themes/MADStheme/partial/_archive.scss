@@ -45,4 +45,26 @@
         padding-left: 5%;
     }  
 }
-    
+.page-numbers {
+    grid-column: 1 / span 2;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: auto;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 2px;
+    font-weight: 300;
+    li {
+        margin-left: 50%;
+        display: contents;
+        a {
+            background-color: $footer-primary-back;
+            color: white;
+            border-radius: 50%;
+        }
+        a:hover {
+            background-color: white;
+            color: $footer-primary-back;
+        }
+    }
+}

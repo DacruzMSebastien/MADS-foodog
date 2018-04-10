@@ -1,5 +1,6 @@
             <?php get_header(); ?>
             <!-- ouvrir header,php -->
+
             <div id="content-archive">
                 <?php if(have_posts()) : ?>
                 <?php while(have_posts()) : the_post(); ?>
@@ -24,8 +25,11 @@
                         </div>
                     </div>
                 </div>
-                <?php endwhile; ?>
+                <?php endwhile; 
+                    theme_pagination();
+                ?>
                 <?php endif; ?>
+
                 <div class="content_sidebar">
                     <div id="archive_sidebar">
                         <?php get_sidebar(); ?>
