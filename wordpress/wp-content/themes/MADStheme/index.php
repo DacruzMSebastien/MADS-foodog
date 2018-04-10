@@ -3,7 +3,11 @@
             <?php get_header(); ?>
             <!-- CONTENT -->
             <div id="content">
-                <?php require "featured.php"; ?>
+                <?php
+                  require "popular.php";
+                  require "featured.php";
+                ?>
+
             </div>
         </div>
         <!-- FOOTER -->

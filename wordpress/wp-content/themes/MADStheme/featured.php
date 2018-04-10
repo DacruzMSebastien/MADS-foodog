@@ -6,7 +6,7 @@
             'meta_key' => 'meta-checkbox',
             'meta_value' => 'yes'
         );
-        
+
         $featured = new WP_Query($args);
 
     if ($featured->have_posts()): while($featured->have_posts()): $featured->the_post(); ?>
@@ -28,16 +28,16 @@
                     </a>
                 </h3>
                 <div class="post_content">
-                    <?php the_content(); ?>
+                    <?php the_excerpt(); ?>
                 </div>
             </div>
         </div>
-        
+
         <!-- <p>
             <?php //the_excerpt();?>
         </p> -->
     <?php
-        
+
         endwhile; else:
         endif;
     ?>
