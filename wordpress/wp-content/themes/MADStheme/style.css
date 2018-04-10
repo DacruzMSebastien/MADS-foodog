@@ -271,9 +271,10 @@ h6 {
 }
 
 .social {
-  padding-left: 2px;
+  padding-left: 3px;
   padding-right: 3px;
-  transform: translateY(3px);
+  transform: translateY(5px);
+  width: 10%;
 }
 
 span {
@@ -281,6 +282,7 @@ span {
   float: right;
   padding-right: 10px;
   padding-top: 5px;
+  transform: translateY(5px);
 }
 
 ul {
@@ -506,8 +508,8 @@ ul li {
 
 #content-archive #article .post_content {
   margin-left: 45%;
-  padding-top: 10px;
-  transform: translateY(-120px);
+  padding-top: 5px;
+  transform: translateY(-130px);
 }
 
 #content-archive .content_sidebar {
