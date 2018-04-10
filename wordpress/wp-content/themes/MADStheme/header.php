@@ -11,6 +11,7 @@
             <?php wp_title() ?>
             <?php endif ?>
         </title>
+        <meta name="viewport" content="width=device-width"/>
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
         <meta name="generator" content="WordPress <?php bloginfo('version'); ?>" />
         <!-- leave this for stats -->

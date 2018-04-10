@@ -27,8 +27,8 @@
                             $args = array(
                                 'limit' => 3,
                                 'stats_views' => 0,
-                                'thumbnail_width' => 80,
-                                'thumbnail_height' => 60);
+                                'thumbnail_width' => 105,
+                                'thumbnail_height' => 81);
                             wpp_get_mostpopular($args);
                 }?>
             </div>
@@ -49,10 +49,12 @@
         </div>
     </div>
     <div id="footerEnd">
-        <ul>
-            <li><a href="https://fr-fr.facebook.com/"><img src="http://localhost/MADS-foodog/wordpress/wp-admin/images/face.png" alt="facebook"></a></li>
-            <li><a href="https://twitter.com/?lang=fr"><img src="http://localhost/MADS-foodog/wordpress/wp-admin/images/twit.png" alt="twitter"></a></li>
-            <li><a href="https://www.instagram.com/?hl=fr"><img src="http://localhost/MADS-foodog/wordpress/wp-admin/images/inst.png" alt="instagram"></a></li>
-        </ul>
+        <div id="footerEndAlign">
+            <ul>
+                <li><a href="https://fr-fr.facebook.com/"><img src="http://localhost/MADS-foodog/wordpress/wp-admin/images/face.png" alt="facebook"></a></li>
+                <li><a href="https://twitter.com/?lang=fr"><img src="http://localhost/MADS-foodog/wordpress/wp-admin/images/twit.png" alt="twitter"></a></li>
+                <li><a href="https://www.instagram.com/?hl=fr"><img src="http://localhost/MADS-foodog/wordpress/wp-admin/images/inst.png" alt="instagram"></a></li>
+            </ul>
+        </div>
     </div>
 </div>

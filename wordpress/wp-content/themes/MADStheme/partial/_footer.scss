@@ -4,26 +4,26 @@
     #footerInfo {
         background-color:$footer-primary-back;
         width: 100%;
+        padding:2%;
         #footerAlign {
-            margin-left: 25%;
-            margin-right: 25%;
+            margin-left: 10%;
+            margin-right: 10%;
             display: grid;
-            grid-template-columns: 30%, 30%, 30%;
-            grid-template-rows: 25%;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
             #footerCat {
                 grid-column: 1;
-                margin-right: 60%;
-                width:100%;
+                width:auto;
                 .menu-categorie2-container {
                     ul {
                         text-align: left;
                         li {
                             display:block;
-                            padding: 2%;
+                            padding: 5%;
                             border-bottom:1px solid #636363;
                             a {
                                 color: white;
-                                font-size: 50%;
+                                font-size: 70%;
                             }
                         }
                     }
@@ -31,79 +31,70 @@
             }
             #footerPop {
                 grid-column: 2;
-                margin-left:10%;
-                margin-right:20%;
                 width:auto;
                 ul {
                     li {
-                        padding:2%;
+                        padding:6%;
                         a {
                             color: white;
-                            font-size: 50%;
+                            font-size: 70%;
                         }
                     }
                 }
             }
             #footerInst {
                 grid-column: 3;
-                width: auto;
+                width:auto;
                 #listInst{
                     display:grid;
-                    grid-template-columns: 30%, 30%, 30%;
-                    grid-template-rows: 30%, 30%, 30%;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(3, 1fr);
+                    padding-top:3%;
                     #inst1 {
                         grid-column:1 ;
                         grid-row:1;
-                        width: 100%;
-                        padding:2px;
+                        padding:3%;
+                        
                     }
                     #inst2 {
                         grid-column: 2;
                         grid-row:1;
-                        width: 100%;
-                        padding: 2px;
+                        padding:3%;
                     }
                     #inst3 {
                         grid-column: 3;
                         grid-row:1;
-                        width: 100%;
-                        padding: 2px;
+                        padding:3%;
                     }
                     #inst4 {
                         grid-column: 1;
                         grid-row:2;
-                        width: 100%;
-                        padding: 2px;
+                        padding:3%;
                     }
                     #inst5 {
                         grid-column: 2;
                         grid-row:2;
-                        width: 100%;
-                        padding: 2px;
+                        padding:3%;
                     }
                     #inst6 {
                         grid-column: 3;
                         grid-row:2;
-                        width: 100%;
-                        padding: 2px;
+                        padding:3%;
                     }
                     #inst7 {
                         grid-column: 1;
                         grid-row:3;
-                        width: 100%;
-                        padding: 2px;
+                        padding:3%;
                     }
                     #inst8 {
                         grid-column: 2;
                         grid-row:3;
-                        width: 100%;
-                        padding: 2px;
+                        padding:3%;
                     }
                     #inst9 {
                         grid-column: 3;
                         grid-row:3;
-                        width: 100%;
-                        padding: 2px;
+                        padding:3%;
                     }
                 }
             }
@@ -111,12 +102,18 @@
     }
     #footerEnd {
         background-color: $footer-secondary-back;
-        ul {
-            text-align: right;
-            li {
-                display:inline;
-                a{
+        #footerEndAlign {
+            margin-right:10%;
+            margin-left:10%;
+            ul {
+                text-align: right;
+                padding:2%;
+                margin-right:1%;
+                li {
+                    display:inline;
+                    a{
 
+                    }
                 }
             }
         }
@@ -124,7 +121,8 @@
 }
 .footerTitle {
     margin-left: 8%;
-    font-size: 60%;
-    width:50%;
-    padding: 5%;
+    font-size: 70%;
+}
+img {
+    max-width: 100%;
 }
