@@ -517,6 +517,33 @@ img {
   padding-left: 5%;
 }
 
+.page-numbers {
+  grid-column: 1 / span 2;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: auto;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: 2px;
+  font-weight: 300;
+}
+
+.page-numbers li {
+  margin-left: 50%;
+  display: contents;
+}
+
+.page-numbers li a {
+  background-color: #3D4045;
+  color: white;
+  border-radius: 50%;
+}
+
+.page-numbers li a:hover {
+  background-color: white;
+  color: #3D4045;
+}
+
 .featured-post {
   width: 60%;
   text-align: left;
