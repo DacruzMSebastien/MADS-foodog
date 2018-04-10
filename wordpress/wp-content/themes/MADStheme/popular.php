@@ -1,9 +1,9 @@
-<div class="popular-post">
-    <h3 class="title">POPULAR POST</h3>
-    <?php if(function_exists('wpp_get_mostpopular')){
+<div class="popular-post">   
+          <?php  if(function_exists('wpp_get_mostpopular')){
                 $args = array(
                     'limit' => 5,
-                    'stats_views' => 0);
+                    'stats_category' =>1,
+                    'thumbnail_width' => 300,
+                    'thumbnail_height' => 270);
                 wpp_get_mostpopular($args);
-    }?>
-</div>
+    }?> 
