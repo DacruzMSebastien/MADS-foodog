@@ -28,17 +28,15 @@
             }
         .archive_title {
             @include article-title;
-            //background-color: purple;
             margin-left: 45%;
             transform: translateY(-150px);
             font-size: 22px;
             }
         }
         .post_content {
-            //background-color: blue;
             margin-left: 45%;
-            padding-top: 10px;
-            transform: translateY(-120px);
+            padding-top: 5px;
+            transform: translateY(-130px);
         }
     } 
     .content_sidebar {
