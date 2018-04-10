@@ -566,4 +566,9 @@ img {
 .featured-post .category a {
   font-size: 70%;
 }
+
+.popular-post ul li:nth-child(1) img {
+  width: 760px;
+  height: 510px;
+}
 /*# sourceMappingURL=style.css.map */
