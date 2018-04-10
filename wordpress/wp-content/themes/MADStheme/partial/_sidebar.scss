@@ -2,23 +2,34 @@
   color: white;
   height: 35px;
   width: 250px;
-  font-size: 16px;
+  font-size: 13px;
+  font-weight: bold;
+  
 }
-.fcbk, .insta {
-  background-color: #8E91CC;
+.fcbk {
+  background-color: #8E91CC; 
 }
 .twitter {
   background-color: #6BCDF4;
 }
-img {
+.insta {
+  background-color: #7595BD;
+}
+
+.social {
   padding-left: 2px;
+  padding-right: 3px;
+  transform: translateY(3px);
 }
 span {
   color: white;
   float: right;
-  padding-right: 3px;
-  padding-top: 3px;
+  padding-right: 10px;
+  padding-top: 5px;
 }
 ul {
   padding-bottom: 50px;
+  li {
+    margin-top: 2px;
+  }
 }
