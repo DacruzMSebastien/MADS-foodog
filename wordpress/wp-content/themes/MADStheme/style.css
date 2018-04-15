@@ -477,11 +477,19 @@ img {
   padding-top: 10px;
 }
 
+#content-archive #article .post a {
+  color: #424242;
+}
+
 #content-archive #article .post .category {
   width: 35%;
   margin-left: 45%;
   transform: translateY(25px);
   font-size: 18px;
+}
+
+#content-archive #article .post .category a {
+  color: #ec6743;
 }
 
 #content-archive #article .post #archive_picture {
