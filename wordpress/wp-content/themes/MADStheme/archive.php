@@ -17,7 +17,8 @@
                                 <?php the_post_thumbnail(); ?>
                             </a>
                         </div>
-                        <div class="archive_title">       
+                        <div class="archive_title">  
+                            <a href="<?php the_permalink(); ?>">     
                             <?php the_title(); ?>
                         </div>
                         <div class="post_content">
