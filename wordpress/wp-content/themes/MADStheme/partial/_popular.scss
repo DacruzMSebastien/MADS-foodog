@@ -1,11 +1,105 @@
 .popular-post {
+    font-weight: $font-weight-bold;
+    font-family: $font-secondary;
+    @include h-center(60%, left);
     ul {
+        display: grid;
+        grid-template-columns: 56% 22% 22%;
+        grid-template-rows:10% 10%;
         li:nth-child(1){
-            img{
-                width:760px;
-                height: 510px;
+            grid-column:1;
+            grid-row:1/ span 2;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 75% 2%;
+            font-size:150%;
+            text-align: center;
+            padding-right: 4%;
+            a :nth-child(1) {
+                grid-column: 1;
+                grid-row: 1;
+                width: 636px;
+                height: 427px;
+                padding-bottom: 20px;
+            }
+            a :nth-child(2){
+               grid-column: 1;
+               grid-row: 2;
+            }
+        }
+        li:nth-child(2) {
+            grid-column: 2;
+            grid-row: 1;
+            width:auto;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 75% 25%;
+            a :nth-child(1) {
+                grid-column: 1;
+                grid-row: 1;
+            }
+            a :nth-child(2) {
+                grid-column: 1;
+                grid-row: 2;
+                color: $font-color-bold;
+            }
+        }
+        li:nth-child(3) {
+            grid-column: 3;
+            grid-row: 1;
+            width:auto;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 75% 25%;
+            a :nth-child(1) {
+                grid-column: 1;
+                grid-row: 1;
+            }
+            a :nth-child(2) {
+                grid-column: 1;
+                grid-row: 2;
+                color: $font-color-bold;
+            }
+        }
+        li:nth-child(4) {
+            grid-column: 2;
+            grid-row: 2;
+            width:auto;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 75% 25%;
+            a :nth-child(1) {
+                grid-column: 1;
+                grid-row: 1;
+            }
+            a :nth-child(2) {
+                grid-column: 1;
+                grid-row: 2;
+                width: auto;
+                color: $font-color-bold;
+            }
+        }
+        li:nth-child(5) {
+            grid-column: 3;
+            grid-row: 2;
+            width:auto;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 75% 25%;
+            a :nth-child(1) {
+                grid-column: 1;
+                grid-row: 1;
+            }
+            a :nth-child(2) {
+                grid-column: 1;
+                grid-row: 2;
+                width: auto;
+                color: $font-color-bold;
             }
         }
     }
     
+}
+.popular-post, .wpp-post-title {
+    color : $font-color-bold;   
 }

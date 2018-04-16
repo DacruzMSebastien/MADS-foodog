@@ -16,7 +16,6 @@
                 width:auto;
                 .menu-categorie2-container {
                     ul {
-                        text-align: left;
                         li {
                             display:block;
                             padding: 5%;
@@ -38,6 +37,7 @@
                         a {
                             color: white;
                             font-size: 70%;
+                            text-align: left;
                         }
                     }
                 }
