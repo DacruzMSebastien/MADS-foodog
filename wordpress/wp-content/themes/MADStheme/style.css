@@ -315,10 +315,6 @@ ul li {
   width: auto;
 }
 
-#footer #footerInfo #footerAlign #footerCat .menu-categorie2-container ul {
-  text-align: left;
-}
-
 #footer #footerInfo #footerAlign #footerCat .menu-categorie2-container ul li {
   display: block;
   padding: 5%;
@@ -342,6 +338,7 @@ ul li {
 #footer #footerInfo #footerAlign #footerPop ul li a {
   color: white;
   font-size: 70%;
+  text-align: left;
 }
 
 #footer #footerInfo #footerAlign #footerInst {
@@ -601,7 +598,6 @@ img {
 .popular-post ul li:nth-child(1) a :nth-child(2) {
   grid-column: 1;
   grid-row: 2;
-  color: #424242;
   padding: 4%;
 }
 
@@ -618,6 +614,7 @@ img {
 .popular-post ul li:nth-child(2) a :nth-child(1) {
   grid-column: 1;
   grid-row: 1;
+  margin-bottom: 5%;
 }
 
 .popular-post ul li:nth-child(2) a :nth-child(2) {
@@ -640,6 +637,7 @@ img {
 .popular-post ul li:nth-child(3) a :nth-child(1) {
   grid-column: 1;
   grid-row: 1;
+  margin-bottom: 5%;
 }
 
 .popular-post ul li:nth-child(3) a :nth-child(2) {
@@ -663,6 +661,7 @@ img {
 .popular-post ul li:nth-child(4) a :nth-child(1) {
   grid-column: 1;
   grid-row: 1;
+  margin-bottom: 5%;
 }
 
 .popular-post ul li:nth-child(4) a :nth-child(2) {
@@ -686,6 +685,7 @@ img {
 .popular-post ul li:nth-child(5) a :nth-child(1) {
   grid-column: 1;
   grid-row: 1;
+  margin-bottom: 5%;
 }
 
 .popular-post ul li:nth-child(5) a :nth-child(2) {
@@ -698,6 +698,5 @@ img {
 
 .popular-post, .wpp-post-title {
   color: #424242;
-  padding: 4%;
 }
 /*# sourceMappingURL=style.css.map */
