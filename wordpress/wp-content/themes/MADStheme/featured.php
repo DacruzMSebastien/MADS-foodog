@@ -9,7 +9,8 @@
 
         $featured = new WP_Query($args);
 
-    if ($featured->have_posts()): while($featured->have_posts()): $featured->the_post(); ?>
+        if ($featured->have_posts()): while($featured->have_posts()): $featured->the_post(); ?>
+
         <div class="article-content">
             <div class="left">
                 <p>
@@ -32,12 +33,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- <p>
-            <?php //the_excerpt();?>
-        </p> -->
     <?php
-
         endwhile; else:
         endif;
     ?>
