@@ -293,6 +293,10 @@ ul li {
   margin-top: 2px;
 }
 
+.sidebar a {
+  color: white;
+}
+
 #footer {
   font-weight: 900;
   font-family: "Open Sans", sans-serif;
